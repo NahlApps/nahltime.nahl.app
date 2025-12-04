@@ -77,12 +77,12 @@
     }
 
     section {
-      padding: 4.5rem 0;
+      padding: 4.2rem 0;
     }
 
     @media (min-width: 1024px) {
       section {
-        padding: 5.5rem 0;
+        padding: 5rem 0;
       }
     }
 
@@ -208,17 +208,6 @@
       transform: translateY(-1px);
     }
 
-    .btn-ghost {
-      background: transparent;
-      border-color: transparent;
-      color: var(--text-muted);
-      padding-inline: 0.25rem;
-    }
-
-    .btn-ghost:hover {
-      color: var(--text-main);
-    }
-
     .btn-dark {
       background: #111827;
       color: #f9fafb;
@@ -271,16 +260,13 @@
       .nav-links {
         display: flex;
       }
-
       .nav-cta-group {
         display: flex;
       }
-
       .nav-toggle,
       .mobile-menu {
         display: none;
       }
-
       .navbar-inner {
         height: 72px;
       }
@@ -300,7 +286,7 @@
 
     @media (min-width: 960px) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
         gap: 3.3rem;
       }
     }
@@ -335,7 +321,7 @@
       font-size: 1.9rem;
       line-height: 1.35;
       font-weight: 700;
-      margin: 0 0 0.6rem;
+      margin: 0 0 0.5rem;
       letter-spacing: 0.01em;
     }
 
@@ -346,10 +332,10 @@
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
       max-width: 34rem;
-      margin-bottom: 1.7rem;
+      margin-bottom: 1.3rem;
     }
 
     .hero-bullets {
@@ -358,7 +344,7 @@
       gap: 0.75rem 1.5rem;
       font-size: 0.86rem;
       color: var(--text-muted);
-      margin-bottom: 1.7rem;
+      margin-bottom: 1.3rem;
     }
 
     .hero-bullet {
@@ -377,7 +363,7 @@
       flex-wrap: wrap;
       gap: 0.75rem;
       align-items: center;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1rem;
     }
 
     .hero-note {
@@ -397,7 +383,7 @@
       font-size: 0.85rem;
       color: var(--text-muted);
       box-shadow: 0 8px 23px rgba(15, 23, 42, 0.06);
-      max-width: 24rem;
+      max-width: 25rem;
     }
 
     .hero-proof-avatars {
@@ -427,10 +413,10 @@
       background: linear-gradient(135deg, #0ea5e9, #38bdf8);
     }
 
-    /* Hero visual with photo + UI */
+    /* Hero visual */
     .hero-visual {
       position: relative;
-      max-width: 420px;
+      max-width: 440px;
       margin-inline: auto;
     }
 
@@ -439,15 +425,13 @@
       overflow: hidden;
       position: relative;
       box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
-      background:
-        linear-gradient(135deg, #020617, #0f172a);
+      background: linear-gradient(135deg, #020617, #0f172a);
       height: 260px;
       display: flex;
       align-items: flex-end;
       justify-content: center;
     }
 
-    /* Placeholder background; replace with real photo via CSS or <img> inside */
     .hero-photo::before {
       content: "";
       position: absolute;
@@ -455,7 +439,7 @@
       background:
         url("https://images.pexels.com/photos/6872591/pexels-photo-6872591.jpeg?auto=compress&cs=tinysrgb&w=1200")
         center/cover no-repeat;
-      opacity: 0.22;
+      opacity: 0.32;
       mix-blend-mode: luminosity;
     }
 
@@ -465,7 +449,7 @@
       padding: 1rem 1rem 1.1rem;
       width: 100%;
       backdrop-filter: blur(6px);
-      background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.75));
     }
 
     .hero-photo-header {
@@ -579,7 +563,7 @@
 
     /* Logo strip */
     .logo-strip {
-      padding: 2.25rem 0 0.75rem;
+      padding: 2.2rem 0 0.8rem;
     }
 
     .logo-strip-inner {
@@ -620,25 +604,25 @@
 
     /* Section headers */
     .section-header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .section-eyebrow {
       font-size: 0.78rem;
       color: #9ca3af;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.25rem;
     }
 
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 0.4rem;
     }
 
     .section-subtitle {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
-      max-width: 36rem;
+      max-width: 32rem;
     }
 
     /* Grid & cards */
@@ -659,7 +643,7 @@
     .card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
-      padding: 1.2rem 1.2rem 1.1rem;
+      padding: 1.1rem 1.1rem 1.05rem;
       box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
       border: 1px solid var(--border-subtle);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
@@ -672,14 +656,14 @@
     }
 
     .card-icon {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 999px;
       background: var(--primary-soft);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.55rem;
     }
 
     .card-icon i {
@@ -687,99 +671,93 @@
       font-size: 1rem;
     }
 
+    .card-image {
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 0.65rem;
+      height: 120px;
+      background: #e5e7eb;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .card-title {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 600;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     .card-label {
       font-size: 0.74rem;
       color: #9ca3af;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .card-text {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* Timeline */
-    .timeline {
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    @media (min-width: 768px) {
-      .timeline {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .timeline-step {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: 1rem 1rem 0.9rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.04);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .timeline-step::before {
-      content: attr(data-step);
-      position: absolute;
-      top: 0.65rem;
-      left: 0.75rem;
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    .timeline-badge {
-      display: inline-flex;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      font-size: 0.76rem;
-      margin-bottom: 0.5rem;
-      color: #92400e;
-    }
-
-    .timeline-title {
-      font-size: 0.96rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-text {
       font-size: 0.86rem;
       color: var(--text-muted);
       line-height: 1.7;
     }
 
-    /* Pills */
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+    /* Gallery */
+    .gallery-strip {
+      margin-top: 1.8rem;
     }
 
-    .pill {
-      padding: 0.3rem 0.8rem;
+    .image-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    @media (min-width: 900px) {
+      .image-strip {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .image-card {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background: #e5e7eb;
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 0.3s ease-out;
+    }
+
+    .image-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .image-card-caption {
+      position: absolute;
+      inset-inline: 0.55rem;
+      bottom: 0.55rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(255, 255, 255, 0.9);
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      cursor: default;
+      padding: 0.18rem 0.6rem;
+      background: rgba(15, 23, 42, 0.8);
+      color: #e5e7eb;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
-    .pill-primary {
-      border-color: #facc15;
-      background: var(--primary-soft);
-      color: #92400e;
+    .image-card-caption i {
+      font-size: 0.78rem;
+      color: #facc15;
     }
 
     /* Screens / product tour */
@@ -819,7 +797,7 @@
       background: #22c55e;
     }
 
-    /* Founding program band */
+    /* Band (founding program) */
     .band {
       border-radius: 22px;
       padding: 1.3rem 1.2rem;
@@ -871,7 +849,7 @@
     }
 
     .testimonial-quote {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-main);
       line-height: 1.8;
     }
@@ -887,6 +865,13 @@
       height: 36px;
       border-radius: 999px;
       background: linear-gradient(135deg, #22c55e, #a3e635);
+      overflow: hidden;
+    }
+
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .testimonial-name {
@@ -913,7 +898,7 @@
 
     .pricing-card {
       position: relative;
-      padding-top: 1.7rem;
+      padding-top: 1.6rem;
     }
 
     .pricing-badge {
@@ -984,7 +969,7 @@
     }
 
     .faq-answer {
-      font-size: 0.85rem;
+      font-size: 0.83rem;
       color: var(--text-muted);
       line-height: 1.7;
     }
@@ -1010,7 +995,7 @@
     }
 
     .contact-form-group {
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
     }
 
     .contact-label {
@@ -1051,7 +1036,7 @@
 
     .contact-textarea {
       resize: vertical;
-      min-height: 90px;
+      min-height: 80px;
       max-height: 200px;
     }
 
@@ -1076,36 +1061,40 @@
     }
 
     .contact-aside {
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
-    .contact-aside-highlight {
-      background: var(--primary-soft);
+    .contact-aside-steps {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 0.6rem;
+    }
+
+    .aside-step {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 14px;
-      padding: 0.75rem 0.85rem;
-      margin-bottom: 0.9rem;
-      font-size: 0.84rem;
+      padding: 0.6rem 0.7rem;
+      border: 1px dashed rgba(148, 163, 184, 0.8);
+    }
+
+    .aside-step-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
       color: #92400e;
     }
 
-    .contact-aside-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.6rem 0 1rem;
-      font-size: 0.84rem;
-    }
-
-    .contact-aside-list li {
-      margin-bottom: 0.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .contact-aside-list i {
-      font-size: 0.8rem;
-      color: var(--text-main);
+    .aside-step-text {
+      font-size: 0.82rem;
     }
 
     .contact-whatsapp {
@@ -1113,7 +1102,7 @@
       align-items: center;
       gap: 0.4rem;
       font-size: 0.86rem;
-      margin-top: 0.3rem;
+      margin-top: 0.7rem;
     }
 
     .contact-whatsapp i {
@@ -1295,10 +1284,10 @@
         </div>
         <nav class="nav-links">
           <a href="#hero">الرئيسية</a>
-          <a href="#why">لماذا NahlTime؟</a>
+          <a href="#gallery">صور من أرض الواقع</a>
           <a href="#features">المميزات</a>
+          <a href="#screens">شريط اليوم</a>
           <a href="#founding">الشركاء الأوائل</a>
-          <a href="#pricing">الأسعار</a>
           <a href="#contact">تجربة</a>
         </nav>
         <div class="nav-cta-group">
@@ -1316,11 +1305,12 @@
       </div>
       <div class="mobile-menu" id="mobileMenu">
         <a href="#hero" onclick="toggleMobileMenu()">الرئيسية</a>
-        <a href="#why" onclick="toggleMobileMenu()">لماذا NahlTime؟</a>
+        <a href="#gallery" onclick="toggleMobileMenu()">صور</a>
         <a href="#features" onclick="toggleMobileMenu()">المميزات</a>
+        <a href="#screens" onclick="toggleMobileMenu()">شاشة النظام</a>
         <a href="#founding" onclick="toggleMobileMenu()">الشركاء الأوائل</a>
         <a href="#pricing" onclick="toggleMobileMenu()">الأسعار</a>
-        <a href="#faq" onclick="toggleMobileMenu()">الأسئلة الشائعة</a>
+        <a href="#faq" onclick="toggleMobileMenu()">الأسئلة</a>
         <button class="btn btn-primary" onclick="scrollToSection('founding'); toggleMobileMenu();">
           انضم كشريك مبكر
         </button>
@@ -1340,48 +1330,46 @@
           <div>
             <div class="hero-pill">
               <span class="highlight">برنامج الشركاء الأوائل</span>
-              <span>فرصة محدودة للمغاسل والمقاهي في السعودية والخليج</span>
+              <span>لمغاسل السيارات والمقاهي في السعودية والخليج</span>
             </div>
             <h1 class="hero-title">
-              نظام التشغيل الجديد لمغاسل السيارات في الخليج
+              خلي يوم المغسلة واضح… بالصور والأرقام من شاشة واحدة
             </h1>
             <p class="hero-subtitle">
-              NahlTime يجمع حجوزات الغسيل، الفريق، وتنبيهات الواتساب في نظام واحد بسيط.
-              بنيناه من أرض الواقع مع مغاسل حقيقية… ونطوّره مع شركائنا الأوائل خطوة بخطوة 🚗✨
+              NahlTime ينظّم حجوزات الغسيل، المسارات، وتنبيهات الواتساب في لوحة بسيطة بالعربي.
             </p>
             <div class="hero-bullets">
               <div class="hero-bullet">
                 <i class="fa-solid fa-check"></i>
-                <span>مخصص لمغاسل السيارات والمقاهي التي تقدم خدمة الغسيل</span>
+                <span>يدعم الجوال والكمبيوتر</span>
               </div>
               <div class="hero-bullet">
                 <i class="fa-solid fa-check"></i>
-                <span>يدعم العربية بالكامل ويعمل على الجوال والكمبيوتر</span>
+                <span>مصمم خصيصًا لمغاسل السيارات</span>
               </div>
             </div>
             <div class="hero-cta-row">
-              <button class="btn btn-primary" onclick="scrollToSection('founding')">
-                انضم كشريك مبكر
-                <i class="fa-solid fa-arrow-left-long"></i>
-              </button>
-              <button class="btn btn-outline" onclick="scrollToSection('screens')">
+              <button class="btn btn-primary" onclick="scrollToSection('screens')">
+                شاهد يوم مغسلتك داخل NahlTime
                 <i class="fa-regular fa-circle-play"></i>
-                شاهد كيف يشتغل في 60 ثانية
+              </button>
+              <button class="btn btn-outline" onclick="scrollToSection('contact')">
+                احجز تجربة حية
               </button>
             </div>
             <div class="hero-note">
-              لا عقود طويلة. مكالمة واحدة نفهم فيها شغلك، وبعدها أنت اللي تقرر.
+              مكالمة واحدة خفيفة… بعدها تشوف النظام على شغلك الحقيقي.
             </div>
             <div class="hero-proof">
               <div class="hero-proof-avatars">
                 <span></span><span></span><span></span>
               </div>
               <div>
-                شركاؤنا في بناء NahlTime يشملون
-                <strong>AutoSpa</strong> و <strong>Carfection</strong> و <strong>Simplicity Coffee</strong>.
+                شركاؤنا الأوائل: <strong>AutoSpa</strong> · <strong>Carfection</strong> · <strong>Simplicity Coffee</strong>.
               </div>
             </div>
           </div>
+
           <div class="hero-visual" aria-hidden="true">
             <div class="hero-photo">
               <div class="hero-photo-overlay">
@@ -1391,42 +1379,42 @@
                     جدول اليوم · فرع حي الندى
                   </span>
                   <span style="font-size:0.78rem;color:#bbf7d0;">
-                    27 سيارة اليوم
+                    ٢٧ سيارة اليوم
                   </span>
                 </div>
                 <div style="font-size:0.75rem;color:#9ca3af;margin-bottom:0.25rem;">
-                  السعة لكل ساعة محسوبة حسب عدد المسارات والفريق
+                  عرض بصري للسعة والحجوزات في كل مسار
                 </div>
                 <div class="hero-lanes">
                   <div class="hero-lane-card">
                     <div class="hero-lane-title">المسار 1</div>
                     <div class="hero-lane-meta">٩–١١ ص: مكتمل</div>
-                    <div class="hero-lane-tag">تركيز على الغسيل الكامل</div>
+                    <div class="hero-lane-tag">ضغط عالي / منظم</div>
                   </div>
                   <div class="hero-lane-card">
                     <div class="hero-lane-title">المسار 2</div>
                     <div class="hero-lane-meta">٣–٥ م: ٣/٥ سيارات</div>
                     <div class="hero-lane-tag" style="background:rgba(56,189,248,0.25);color:#e0f2fe;">
-                      مساحة لعرض خاص
+                      مناسب للعروض
                     </div>
                   </div>
                   <div class="hero-lane-card">
                     <div class="hero-lane-title">مسار الأسطول</div>
-                    <div class="hero-lane-meta">٤ سيارات Fleet اليوم</div>
+                    <div class="hero-lane-meta">٤ سيارات Fleet</div>
                     <div class="hero-lane-tag" style="background:rgba(34,197,94,0.18);color:#bbf7d0;">
-                      منظم بدون تكدس
+                      بدون تكدس
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="hero-floating-badge">
-              +32٪ حجوزات منظمة خلال ٣ أشهر
+              +٣٢٪ تنظيم أفضل للحجوزات
             </div>
             <div class="hero-floating-card">
               <div><strong><span class="dot"></span>الحجز القادم</strong></div>
               <div>10:15 ص · غسيل كامل · عميل جديد</div>
-              <small>تم تأكيد الموعد بالواتساب، والفريق شايفه في جدول اليوم.</small>
+              <small>تم تأكيد الموعد بالواتساب، الفريق شايفه في الجدول.</small>
             </div>
           </div>
         </div>
@@ -1438,9 +1426,9 @@
       <div class="container">
         <div class="logo-strip-inner">
           <div>
-            <div>شركاؤنا في بناء مستقبل مغاسل السيارات:</div>
+            <div>شركاؤنا في تجربة NahlTime:</div>
             <div class="logo-caption">
-              نضيف مميزات جديدة شهريًا بناءً على اقتراحاتهم وتجاربهم.
+              نطوّر المميزات بصحبة شركاء حقيقيين من السوق.
             </div>
           </div>
           <div class="logos">
@@ -1453,256 +1441,88 @@
       </div>
     </section>
 
-    <!-- Why NahlTime / story -->
-    <section id="why" class="fade-section">
+    <!-- Gallery: more images, less text -->
+    <section id="gallery" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">لماذا نبني NahlTime؟ وليش الآن؟</div>
-          <h2 class="section-title">من فوضى الورق والواتساب… إلى نظام تشغيل بسيط للمغسلة</h2>
+          <div class="section-eyebrow">صور من أرض الواقع</div>
+          <h2 class="section-title">شوف المغسلة والفريق قبل ما تسمع الشرح</h2>
           <p class="section-subtitle">
-            أغلب مغاسل السيارات في الخليج تعمل بخليط من الاتصالات، الواتساب، والأوراق.
-            هذا يأخذ وقتًا من أصحاب النشاط، ويضيع فرصًا، ويتعب الفريق.
+            لقطات سريعة توضح الجو العام: استقبال السيارة، الفريق، الشاشة، والتقارير.
           </p>
         </div>
-        <div class="grid grid-2">
-          <div class="card">
-            <div class="card-label">المشكلة</div>
-            <div class="card-title">الضغط يزيد… بدون تنظيم ذكي</div>
-            <div class="card-text">
-              مع ارتفاع تكلفة العمالة وزيادة توقعات العملاء، الاعتماد على جداول يدوية أو
-              واتساب فقط لا يكفي. المواعيد تتداخل، السيارات تتكدس، وتجربة العميل تتأثر.
+        <div class="image-strip">
+          <div class="image-card">
+            <img src="https://images.pexels.com/photos/6872596/pexels-photo-6872596.jpeg?auto=compress&cs=tinysrgb&w=800" alt="استقبال سيارة في المغسلة" />
+            <div class="image-card-caption">
+              <i class="fa-solid fa-car-side"></i>
+              استقبال السيارة وتنظيم الدور
             </div>
           </div>
-          <div class="card">
-            <div class="card-label">رؤيتنا</div>
-            <div class="card-title">NahlTime كنظام تشغيل للمغاسل في الخليج</div>
-            <div class="card-text">
-              هدفنا أن يكون لكل مغسلة في الخليج نظام تشغيل بسيط، بالعربي، مبني على طريقة
-              شغلهم الحقيقية، وليس برنامجًا عامًا. نسمع من الشركاء الأوائل، ونضيف
-              المميزات معهم، وليس بالصدفة.
+          <div class="image-card">
+            <img src="https://images.pexels.com/photos/6872590/pexels-photo-6872590.jpeg?auto=compress&cs=tinysrgb&w=800" alt="فريق يعمل على غسيل السيارات" />
+            <div class="image-card-caption">
+              <i class="fa-solid fa-people-group"></i>
+              فريق يشوف الجدول بوضوح
             </div>
           </div>
-        </div>
-        <div class="grid" style="margin-top:1.6rem;">
-          <div class="card" style="display:flex;gap:0.8rem;align-items:flex-start;">
-            <div class="testimonial-avatar"></div>
-            <div>
-              <div class="card-title">كلمة من فريق نحل</div>
-              <div class="card-text">
-                بدأنا NahlTime من مغسلة حقيقية، ثم تعاونّا مع شركاء في الرياض والدوحة
-                والدمام. كل شهر نضيف تحسينات مبنية على تجربة أرض الواقع. إذا انضممت الآن
-                كشريك مبكر، ستكون جزءًا من تشكيل مستقبل المنتج.
-              </div>
+          <div class="image-card">
+            <img src="https://images.pexels.com/photos/7561953/pexels-photo-7561953.jpeg?auto=compress&cs=tinysrgb&w=800" alt="شاشة تعرض نظام حجوزات" />
+            <div class="image-card-caption">
+              <i class="fa-solid fa-display"></i>
+              شاشة NahlTime في المكتب
+            </div>
+          </div>
+          <div class="image-card">
+            <img src="https://images.pexels.com/photos/7561962/pexels-photo-7561962.jpeg?auto=compress&cs=tinysrgb&w=800" alt="اجتماع لمراجعة تقارير الأداء" />
+            <div class="image-card-caption">
+              <i class="fa-solid fa-chart-column"></i>
+              مراجعة التقارير الأسبوعية
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Pain points -->
-    <section id="pain" class="fade-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">قبل NahlTime</div>
-          <h2 class="section-title">إدارة حجوزات غسيل السيارات متعبة بدون نظام تشغيل واضح</h2>
-          <p class="section-subtitle">
-            مكالمات لا تنتهي، رسائل واتساب متفرقة، أوراق وجداول… وفي النهاية تضيع بعض
-            المواعيد أو تتداخل السيارات في نفس الوقت.
-          </p>
-        </div>
-        <div class="grid grid-2">
-          <div class="card">
-            <div class="card-icon">
-              <i class="fa-solid fa-phone-volume"></i>
-            </div>
-            <div class="card-title">مكالمات وواتساب ما تخلص</div>
-            <div class="card-text">
-              العملاء يحجزون من كل مكان، وموظف الاستقبال يضيع بين المحادثات والجداول اليدوية
-              بدون صورة واضحة لليوم.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fa-regular fa-clock"></i>
-            </div>
-            <div class="card-title">تداخل في المواعيد وأوقات هادئة</div>
-            <div class="card-text">
-              ساعات معيّنة مزدحمة جدًا وأخرى فاضية، بدون توزيع ذكي للسعة، وهذا يضغط الفريق
-              ويضيع فرص دخل.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <div class="card-title">ما في رؤية رقمية</div>
-            <div class="card-text">
-              صعب تعرف بدقة عدد السيارات يوميًا، أفضل الأيام، أو أكثر الخدمات ربحية. القرارات
-              تكون إحساس وليس أرقام.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-icon">
-              <i class="fa-solid fa-users-gear"></i>
-            </div>
-            <div class="card-title">متابعة الفريق مجهدة</div>
-            <div class="card-text">
-              لا يوجد مكان واحد يوضح من خدم كم سيارة، ومن يحتاج دعم أو إعادة توزيع
-              الحجوزات عليه.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features (outcomes first) -->
+    <!-- Features: with mini images -->
     <section id="features" class="fade-section">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">المميزات الأساسية</div>
-          <h2 class="section-title">من يوم فوضوي إلى جدول واضح… خطوة خطوة</h2>
+          <h2 class="section-title">أهم ما يقدمه NahlTime… بالصور</h2>
           <p class="section-subtitle">
-            NahlTime لا يضيف شغلًا جديدًا على فريقك؛ بل يحوّل الفوضى الحالية إلى جدول
-            مفهوم لكل شخص في المغسلة.
+            ركّزنا على ثلاث مناطق رئيسية: جدول اليوم، الواتساب، والتقارير.
           </p>
         </div>
         <div class="grid grid-3">
           <div class="card">
-            <div class="card-label">النتيجة</div>
-            <div class="card-title">لا مزيد من تداخل المواعيد في ساعة الذروة</div>
+            <div class="card-image">
+              <img src="https://images.pexels.com/photos/7640120/pexels-photo-7640120.jpeg?auto=compress&cs=tinysrgb&w=800" alt="تقويم حجوزات مغسلة سيارات" />
+            </div>
+            <div class="card-label">الجدول</div>
+            <div class="card-title">جدول اليوم واضح لكل مسار</div>
             <div class="card-text">
-              تقويم يومي وأسبوعي يوضح عدد السيارات في كل ساعة والسعة المتاحة حسب عدد
-              المسارات. النظام يمنع حجز أكثر من طاقة الفريق.
+              عرض بصري للحجوزات في اليوم، بالساعات والألوان. تقدر تعرف الضغط خلال ثواني.
             </div>
           </div>
           <div class="card">
-            <div class="card-label">النتيجة</div>
-            <div class="card-title">العميل يتذكر موعده… بدون أن تتصل به</div>
+            <div class="card-image">
+              <img src="https://images.pexels.com/photos/5076515/pexels-photo-5076515.jpeg?auto=compress&cs=tinysrgb&w=800" alt="رسائل واتساب للعملاء" />
+            </div>
+            <div class="card-label">الواتساب</div>
+            <div class="card-title">رسائل تأكيد وتذكير تلقائية</div>
             <div class="card-text">
-              تأكيد موعد، تذكير قبل الحضور، ورسالة شكر بعد الغسيل تُرسل عبر الواتساب
-              تلقائيًا، حسب إعداداتك ولغتك.
+              العميل يستلم رسالة تأكيد وتذكير وشكر… بدون ما تحتاج تتصل يدويًا.
             </div>
           </div>
           <div class="card">
-            <div class="card-label">النتيجة</div>
-            <div class="card-title">تعرف أداء كل مسار وكل موظف بالأرقام</div>
+            <div class="card-image">
+              <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800" alt="تقارير وأرقام أداء" />
+            </div>
+            <div class="card-label">التقارير</div>
+            <div class="card-title">أرقام بسيطة توضح الصورة</div>
             <div class="card-text">
-              تتبع عدد السيارات لكل مسار أو موظف، ومتوسط السيارات في اليوم، بدون تقارير
-              معقدة أو جداول مخيفة.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-label">تحت الغطاء</div>
-            <div class="card-title">تقويم حجوزات مصمم للمغاسل</div>
-            <div class="card-text">
-              واجهة بسيطة توضح اليوم كله في شاشة واحدة، مع ألوان واضحة لحالة كل حجز:
-              قادم، جاري، مكتمل، ملغي.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-label">تحت الغطاء</div>
-            <div class="card-title">يدعم عدة فروع ومسارات</div>
-            <div class="card-text">
-              إدارة أكثر من فرع في نفس النظام، مع صلاحيات مختلفة للمديرين والمشرفين،
-              وتوزيع السعة حسب كل فرع ومسار.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-label">تحت الغطاء</div>
-            <div class="card-title">تشغيل سريع وتدريب بسيط</div>
-            <div class="card-text">
-              نضبط الإعدادات لأول مرة معك، نحمّل خدماتك وأسعارك، ونشرح لفريقك. خلال أيام،
-              يصبح النظام جزءًا طبيعيًا من اليوم.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section id="how" class="fade-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">خطوات العمل</div>
-          <h2 class="section-title">ثلاث خطوات لتشغيل NahlTime في مغسلتك</h2>
-        </div>
-        <div class="timeline">
-          <div class="timeline-step" data-step="١">
-            <div class="timeline-badge">مكالمة فهم الواقع</div>
-            <div class="timeline-title">نفهم طريقة شغلك الحالية</div>
-            <div class="timeline-text">
-              نسمع عن عدد الفروع، الخدمات، عدد المسارات، وطريقة استقبال الحجوزات اليوم.
-              نحدد معك أهم الأهداف (تقليل التداخل، زيادة السيارات، تنظيم الفريق).
-            </div>
-          </div>
-          <div class="timeline-step" data-step="٢">
-            <div class="timeline-badge">إعداد وتجربة</div>
-            <div class="timeline-title">نضبط النظام ونبدأ تجربة حقيقية</div>
-            <div class="timeline-text">
-              نضيف خدماتك وأسعارك، نضبط سعة كل ساعة، ونربط الواتساب. بعدها نبدأ بأيام تجربة
-              على شغلك الحقيقي مع فريقك.
-            </div>
-          </div>
-          <div class="timeline-step" data-step="٣">
-            <div class="timeline-badge">تشغيل مستمر</div>
-            <div class="timeline-title">تتابع كل شيء من شاشة واحدة</div>
-            <div class="timeline-text">
-              حجوزات اليوم، حالة السيارات، أداء الفريق، والتقارير… كلها في مكان واحد،
-              مع دعم مستمر من فريق نحل واجتماعات دورية للشركاء الأوائل.
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:1.4rem;">
-          <button class="btn btn-outline" onclick="scrollToSection('contact')">
-            احجز مكالمة تعريفية مجانية
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Use cases -->
-    <section id="use-cases" class="fade-section">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">لمن نحل؟</div>
-          <h2 class="section-title">نفس الفوضى… بنسخ مختلفة. NahlTime يجمعهم.</h2>
-          <p class="section-subtitle">
-            سواءً كنت مغسلة مستقلة، كوفي يقدم خدمة الغسيل، أو شركة أسطول، فالمشكلة نفسها:
-            تنظيم المواعيد والفريق. الاختلاف فقط في التفاصيل.
-          </p>
-        </div>
-        <div class="pill-row">
-          <span class="pill pill-primary">ورش ومغاسل مستقلة</span>
-          <span class="pill">مقاهي تقدم غسيل أثناء الجلسة</span>
-          <span class="pill">شركات تأجير وأساطيل سيارات</span>
-        </div>
-        <div class="grid grid-2">
-          <div class="card">
-            <div class="card-title">ورش ومغاسل مستقلة</div>
-            <div class="card-text">
-              تنظيم الحجوزات حسب السعة الحقيقية للمغسلة، منع التكدس عند المدخل، ومعرفة أفضل
-              أيام الأسبوع وأكثر الخدمات طلبًا.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title">مقاهي تقدم غسيل أثناء الجلسة</div>
-            <div class="card-text">
-              ربط وقت جلوس العميل بوقت غسيل سيارته. تعرف متى تنتهي السيارات المتوقفة عند الكوفي
-              وتمنع الازدحام عند الباب.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title">شركات تأجير وأساطيل سيارات</div>
-            <div class="card-text">
-              جدولة غسيل سيارات الأسطول خلال الأسبوع، توزيع العمل على المسارات، ورؤية
-              عدد السيارات المغسولة لكل موقع.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-title">نشاطك الخاص؟</div>
-            <div class="card-text">
-              حتى لو كان نموذج عملك مختلف قليلًا، نقدر نكيّف NahlTime حسب طريقة شغلك. تواصل معنا
-              ونعطيك رأينا بصراحة إذا كنا الأنسب لك أم لا.
+              عدد السيارات، أفضل الأيام، وأكثر الخدمات طلبًا… في تقارير سهلة القراءة.
             </div>
           </div>
         </div>
@@ -1713,8 +1533,11 @@
     <section id="screens" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">نظرة داخل النظام</div>
+          <div class="section-eyebrow">داخل النظام</div>
           <h2 class="section-title">هكذا يبان يومك عندما تدير المغسلة بـ NahlTime</h2>
+          <p class="section-subtitle">
+            لقطات شاشة مُمثّلة لشاشة اليوم والحجز الجديد والتقرير الأسبوعي.
+          </p>
         </div>
         <div class="screens-grid">
           <div class="screen-box">
@@ -1729,30 +1552,26 @@
               </div>
               <div class="screen-status-dot"></div>
             </div>
-            <p style="margin:0 0 0.7rem;">
-              عرض اليوم يعطيك لمحة سريعة عن عدد الحجوزات في كل ساعة، والسعة المتاحة لكل
-              مسار، مع ألوان واضحة للحالات المختلفة.
+            <p style="margin:0 0 0.5rem;">
+              شاشة واحدة توضّح عدد السيارات في كل ساعة، والسعة المتاحة لكل مسار.
             </p>
             <p style="margin:0;">
-              <strong>مثال:</strong><br>
-              ٩–١١ ص: ضغط عالي (أغلب الأوقات ممتلئة)<br>
-              ٣–٥ م: وقت مناسب للعروض أو خصم خاص<br>
-              من هنا تقدر تعدّل السعة لكل ساعة وتوزع الحمل على الفريق.
+              الألوان توضّح: أوقات ممتلئة، أوقات مناسبة للعروض، وأوقات هادئة.
             </p>
           </div>
           <div class="grid" style="gap:1rem;">
             <div class="card" style="box-shadow:0 12px 28px rgba(15,23,42,0.08);">
+              <div class="card-label">الحجز</div>
               <div class="card-title">شاشة حجز جديد</div>
               <div class="card-text">
-                اختيار الخدمة، نوع السيارة، الوقت المناسب، والمسار… في نموذج واحد منظم. النظام
-                يحترم السعة ولا يسمح بحجز زائد.
+                اختيار نوع السيارة، الخدمة، الوقت والمسار… في نموذج واحد بسيط.
               </div>
             </div>
             <div class="card" style="box-shadow:0 12px 28px rgba(15,23,42,0.08);">
-              <div class="card-title">تقرير الأسبوع</div>
+              <div class="card-label">التقرير</div>
+              <div class="card-title">تقرير أسبوعي مختصر</div>
               <div class="card-text">
-                عدد السيارات لكل يوم، متوسط وقت الانتظار، وأكثر الخدمات طلبًا. أرقام بسيطة
-                لكنها كافية لاتخاذ قرارات أفضل بدون إضاعة وقت.
+                عدد السيارات لكل يوم، ومتوسط اليوم الأكثر نشاطًا، بدون تعقيد.
               </div>
             </div>
           </div>
@@ -1765,36 +1584,22 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">الشركاء الأوائل</div>
-          <h2 class="section-title">كن من أوائل من يشكلون مستقبل NahlTime</h2>
+          <h2 class="section-title">كن من أوائل من يجرب ويشكّل NahlTime</h2>
           <p class="section-subtitle">
-            نبحث عن مجموعة محدودة من المغاسل والمقاهي وشركات الأسطول في السعودية والخليج
-            ليكونوا شركاءنا الأوائل. نحسن المنتج معهم، ونعطيهم مزايا خاصة مقابل ملاحظاتهم
-            وتجاربهم.
+            عدد محدود من المغاسل والمقاهي والأساطيل ننطلق معهم في هذه المرحلة.
           </p>
         </div>
         <div class="band">
           <div>
-            <div class="band-title">برنامج الشركاء الأوائل</div>
+            <div class="band-title">مزايا برنامج الشركاء الأوائل</div>
             <div class="band-text">
-              للشركات التي تنضم في هذه المرحلة، نقدم:
+              صور، جلسات، وتجارب حية على شغلك مقابل سعر ثابت مميز.
             </div>
-            <ul class="contact-aside-list" style="margin-top:0.6rem;">
-              <li>
-                <i class="fa-regular fa-circle-check"></i>
-                سعر ثابت مميز يبقى معك حتى مع توسع الفروع.
-              </li>
-              <li>
-                <i class="fa-regular fa-circle-check"></i>
-                أولوية في تطوير المزايا التي تقترحها أنت وفريقك.
-              </li>
-              <li>
-                <i class="fa-regular fa-circle-check"></i>
-                قناة تواصل مباشرة مع فريق نحل (واتساب/تليجرام) لملاحظاتك اليومية.
-              </li>
-              <li>
-                <i class="fa-regular fa-circle-check"></i>
-                اجتماعات دورية لمراجعة الأرقام وتحسين طريقة العمل معًا.
-              </li>
+            <ul class="pricing-features" style="margin-top:0.6rem;">
+              <li><i class="fa-solid fa-check"></i>سعر ثابت مميز يبقى معك عند التوسع.</li>
+              <li><i class="fa-solid fa-check"></i>أولوية في المميزات التي تقترحها.</li>
+              <li><i class="fa-solid fa-check"></i>قناة واتساب مباشرة مع فريق نحل.</li>
+              <li><i class="fa-solid fa-check"></i>جلسات مراجعة أرقام وصور من أرض الواقع.</li>
             </ul>
           </div>
           <div class="band-actions">
@@ -1803,7 +1608,7 @@
             </button>
             <a class="btn btn-outline" href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener">
               <i class="fa-brands fa-whatsapp"></i>
-              تواصل معنا مباشرة
+              تواصل مباشرة في واتساب
             </a>
           </div>
         </div>
@@ -1815,45 +1620,50 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">آراء الشركاء</div>
-          <h2 class="section-title">شركاؤنا الأوائل عن التجربة مع NahlTime</h2>
+          <h2 class="section-title">صور + كلمة بسيطة من الشركاء الأوائل</h2>
         </div>
         <div class="grid grid-3">
           <div class="card testimonial">
+            <div class="testimonial-avatar">
+              <img src="https://images.pexels.com/photos/5717694/pexels-photo-5717694.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Simplicity Coffee" />
+            </div>
             <div class="testimonial-quote">
-              "أهم شيء بالنسبة لنا كان تنظيم مواعيد الغسيل مع وقت جلوس العملاء.
-              NahlTime خلّانا نشوف اليوم كامل في شاشة واحدة، وقلّت الزحمة عند باب الكوفي."
+              "NahlTime ساعدنا نربط وقت جلوس العميل بوقت غسيل سيارته… الزحمة عند الباب قلت."
             </div>
             <div class="testimonial-meta">
-              <div class="testimonial-avatar"></div>
               <div>
                 <div class="testimonial-name">فريق Simplicity Coffee</div>
-                <div class="testimonial-role">خدمة غسيل سيارات أثناء الجلسة · الرياض</div>
+                <div class="testimonial-role">غسيل أثناء الجلسة · الرياض</div>
               </div>
             </div>
           </div>
+
           <div class="card testimonial">
+            <div class="testimonial-avatar">
+              <img src="https://images.pexels.com/photos/6872594/pexels-photo-6872594.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Car wash owner" />
+            </div>
             <div class="testimonial-quote">
-              "النظام بسيط، ما حسّينا أنه معقد على العمال. صاروا يشوفون جدول اليوم ويتعاملون
-              معه بسهولة، بدون ورق ودفاتر."
+              "العمال شافوا الجدول بشكل بصري بسيط… ما احتجنا شروحات طويلة."
             </div>
             <div class="testimonial-meta">
-              <div class="testimonial-avatar"></div>
               <div>
                 <div class="testimonial-name">مالك مغسلة مستقلة</div>
-                <div class="testimonial-role">ورشة غسيل سيارات · جدة</div>
+                <div class="testimonial-role">ورشة غسيل · جدة</div>
               </div>
             </div>
           </div>
+
           <div class="card testimonial">
+            <div class="testimonial-avatar">
+              <img src="https://images.pexels.com/photos/5835359/pexels-photo-5835359.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fleet manager" />
+            </div>
             <div class="testimonial-quote">
-              "أقدر الآن أعرف بالضبط عدد السيارات لكل مسار، وأي الأيام نحتاج نزيد فيها العمالة
-              أو نخفف العروض. كل شيء صار أوضح."
+              "أقدر الآن أشوف عدد سيارات الأسطول المغسولة كل أسبوع بدون ما أسأل أحد."
             </div>
             <div class="testimonial-meta">
-              <div class="testimonial-avatar"></div>
               <div>
                 <div class="testimonial-name">شركة إدارة أسطول</div>
-                <div class="testimonial-role">إدارة سيارات الشركة · الدمام</div>
+                <div class="testimonial-role">أسطول سيارات · الدمام</div>
               </div>
             </div>
           </div>
@@ -1866,10 +1676,9 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">الأسعار</div>
-          <h2 class="section-title">سعر أقل من موظف استقبال… ويعمل 24/7</h2>
+          <h2 class="section-title">سعر أخف من راتب موظف… ويشتغل 24/7</h2>
           <p class="section-subtitle">
-            في مرحلة الشركاء الأوائل، نثبت لك سعرًا مميزًا يبقى معك عند توسعك، مقابل مشاركتك
-            لنا في تحسين المنتج ومشاركة تجربتك.
+            في مرحلة الشركاء الأوائل، نثبت لك سعرًا مميزًا ونمشي معك بصورة قريبة.
           </p>
         </div>
         <div class="pricing-grid">
@@ -1897,18 +1706,15 @@
             </div>
             <ul class="pricing-features">
               <li><i class="fa-solid fa-check"></i>لوحة تحكم موحدة لجميع الفروع</li>
-              <li><i class="fa-solid fa-check"></i>صلاحيات مختلفة للمديرين والمشرفين</li>
+              <li><i class="fa-solid fa-check"></i>صلاحيات للمشرفين والمديرين</li>
               <li><i class="fa-solid fa-check"></i>تنبيهات واتساب متقدمة وتقارير إضافية</li>
               <li><i class="fa-solid fa-check"></i>برنامج شريك مبكر بمزايا موسعة</li>
             </ul>
             <button class="btn btn-outline" onclick="scrollToSection('contact')">
-              اطلب عرض سعر للشركاء الأوائل
+              اطلب عرض للشركاء الأوائل
             </button>
           </div>
         </div>
-        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:1rem;">
-          لا توجد رسوم إعداد مخفية. نوضّح لك التكلفة من البداية، ونراجع معك الأثر بعد أول أسابيع تشغيل.
-        </p>
       </div>
     </section>
 
@@ -1917,35 +1723,31 @@
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">أسئلة متكررة</div>
-          <h2 class="section-title">إجابات سريعة قبل ما تنضم كشريك مبكر</h2>
+          <h2 class="section-title">إجابات سريعة قبل ما تتواصل معنا</h2>
         </div>
         <div class="faq-list">
           <div class="faq-item">
             <div class="faq-question">هل أقدر ألغيه في أي وقت؟</div>
             <div class="faq-answer">
-              نعم، تقدر توقف الاشتراك في أي وقت بدون التزام بعقد طويل الأمد. في برنامج
-              الشركاء الأوائل، نراجع معك النتائج قبل أن تلتزم لفترة أطول.
+              نعم، تقدر توقف الاشتراك في أي وقت. ما نحب العقود المعقدة.
             </div>
           </div>
           <div class="faq-item">
             <div class="faq-question">هل يعمل على الجوال؟</div>
             <div class="faq-answer">
-              نعم، NahlTime يعمل من المتصفح على الجوال أو التابلت أو اللابتوب؛ ما يحتاج
-              تنزيل تطبيق أو تركيب أجهزة خاصة.
+              نعم، من المتصفح على الجوال أو التابلت أو اللابتوب، بدون تحميل تطبيق.
             </div>
           </div>
           <div class="faq-item">
             <div class="faq-question">هل فيه تجربة مجانية؟</div>
             <div class="faq-answer">
-              نعم، نوفّر لك تجربة عملية حقيقية على شغلك، ونساعدك في الإعداد. التجربة جزء من
-              برنامج الشركاء الأوائل وليست عرضًا نظريًا فقط.
+              نعم، تجربة حقيقية على شغلك، وليس فقط عرض شرائح PowerPoint.
             </div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">هل تدعمون اللغة العربية بالكامل؟</div>
+            <div class="faq-question">هل تدعمون اللغة العربية؟</div>
             <div class="faq-answer">
-              نعم، الواجهة والرسائل مصممة للمستخدم العربي والخليجي، مع إمكانية إضافة
-              إنجليزي حسب حاجتك للفرع أو العملاء الأجانب.
+              النظام مصمم للعربي والخليجي أولًا، مع إمكانية إضافة إنجليزي عند الحاجة.
             </div>
           </div>
         </div>
@@ -1956,11 +1758,10 @@
     <section id="contact" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">انضم للحركة</div>
-          <h2 class="section-title">احجز تجربة عملية لـ NahlTime وعرّفنا على مغسلتك</h2>
+          <div class="section-eyebrow">خطوة بسيطة</div>
+          <h2 class="section-title">احجز تجربة عملية لـ NahlTime على نشاطك</h2>
           <p class="section-subtitle">
-            عبّ البيانات البسيطة هذه، ونتواصل معك خلال 24 ساعة لنعطيك تجربة حية للنظام على
-            نشاطك. مكالمة وحدة، بدون التزام، هدفها نشوف هل NahlTime مناسب لك أم لا.
+            عبئ بياناتك، نرجع لك بمكالمة أو واتساب ونمشي معك على النظام خطوة خطوة.
           </p>
         </div>
         <div class="contact-grid">
@@ -1974,60 +1775,78 @@
                 <label class="contact-label">رقم الجوال (مع مفتاح الدولة) <span>*</span></label>
                 <input type="tel" id="phone" name="phone" class="contact-input" placeholder="+9665XXXXXXXX" required />
                 <div class="contact-hint">
-                  سنستخدم الرقم في الواتساب أو الاتصال لترتيب التجربة. لا نشارك رقمك مع أي طرف آخر.
+                  نستخدم الرقم فقط للتواصل معك حول NahlTime. لن نشارك رقمك.
                 </div>
               </div>
               <div class="contact-form-group">
                 <label class="contact-label">نوع النشاط</label>
                 <select id="businessType" name="businessType" class="contact-select">
                   <option value="">اختر نوع النشاط</option>
-                  <option value="workshop">ورشة / مغسلة سيارات مستقلة</option>
-                  <option value="cafe">كوفي يقدم خدمة غسيل أثناء الجلسة</option>
-                  <option value="fleet">شركة تأجير / أسطول سيارات</option>
-                  <option value="other">نشاط آخر (اذكره في الملاحظة)</option>
+                  <option value="workshop">ورشة / مغسلة سيارات</option>
+                  <option value="cafe">كوفي مع خدمة غسيل</option>
+                  <option value="fleet">شركة تأجير / أسطول</option>
+                  <option value="other">نشاط آخر</option>
                 </select>
               </div>
               <div class="contact-form-group">
                 <label class="contact-label">حجم النشاط التقريبي</label>
                 <select id="size" name="size" class="contact-select">
-                  <option value="">اختر تقديرًا تقريبيًا</option>
+                  <option value="">اختر تقديرًا</option>
                   <option value="small">فرع واحد / حتى 2 مسار</option>
                   <option value="medium">2–3 فروع أو حتى 5 مسارات</option>
                   <option value="large">أكثر من 3 فروع أو أكثر من 5 مسارات</option>
                 </select>
               </div>
               <div class="contact-form-group">
-                <label class="contact-label">شيء تحب نعرفه عن وضعك الحالي</label>
+                <label class="contact-label">ملاحظة سريعة (اختياري)</label>
                 <textarea
                   id="message"
                   name="message"
                   class="contact-textarea"
-                  placeholder="مثال: عندنا ضغط عالي في فترات معيّنة… نبي نوقف تداخل المواعيد ونشوف أرقام واضحة عن اليوم."
+                  placeholder="مثال: عندنا ضغط عالي وقت الليل، نبي نشوف حل للتكدس."
                 ></textarea>
               </div>
               <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;margin-top:0.4rem;">
-                إرسال الطلب والانضمام كشريك محتمل
+                إرسال الطلب والتجربة
               </button>
               <div class="contact-footer-note">
                 <i class="fa-solid fa-shield-heart"></i>
-                <span>لسنا فريق مبيعات مزعج 😊 مكالمة واحدة فقط لفهم شغلك، وبعدها القرار لك بالكامل.</span>
+                <span>مكالمة أو رسالة واحدة هادئة، لا سبام ولا إزعاج.</span>
               </div>
             </form>
           </div>
+
           <div class="contact-aside">
-            <div class="contact-aside-highlight">
-              أفضل طريقة لفهم NahlTime ليست عرضًا في سلايدز… بل تجربة حقيقية على شغلك اليومي.
+            <div>كيف تكون التجربة؟</div>
+            <div class="contact-aside-steps">
+              <div class="aside-step">
+                <div class="aside-step-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="aside-step-text">
+                  مكالمة/واتساب قصيرة نفهم فيها وضعك الحالي وأسئلتك.
+                </div>
+              </div>
+              <div class="aside-step">
+                <div class="aside-step-icon">
+                  <i class="fa-solid fa-display"></i>
+                </div>
+                <div class="aside-step-text">
+                  نعرض لك النظام بلقطات حية تناسب نشاطك.
+                </div>
+              </div>
+              <div class="aside-step">
+                <div class="aside-step-icon">
+                  <i class="fa-solid fa-car-side"></i>
+                </div>
+                <div class="aside-step-text">
+                  نجرّب يوم حقيقي (افتراضي) من استقبال السيارة حتى التقرير.
+                </div>
+              </div>
             </div>
-            <p>في التجربة الأولى، سنقوم بـ:</p>
-            <ul class="contact-aside-list">
-              <li><i class="fa-regular fa-circle-check"></i>فهم طريقة عملك الحالية وتحدياتك.</li>
-              <li><i class="fa-regular fa-circle-check"></i>محاكاة يوم حقيقي في NahlTime (حجوزات، فريق، واتساب).</li>
-              <li><i class="fa-regular fa-circle-check"></i>اقتراح إعدادات بسيطة تناسب حجم نشاطك.</li>
-            </ul>
-            <p>تقدر كذلك تتواصل مباشرة معنا في الواتساب لو تحب تبدأ محادثة سريعة:</p>
             <a href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener" class="contact-whatsapp">
               <i class="fa-brands fa-whatsapp"></i>
-              <span>تواصل مع فريق Nahl في واتساب</span>
+              <span>تواصل فورًا في واتساب (بدون فورم)</span>
             </a>
           </div>
         </div>
@@ -2039,20 +1858,19 @@
       <div class="container">
         <div class="final-cta-box">
           <div>
-            <div class="final-cta-text-main">جاهز تكون جزء من الجيل الجديد لمغاسل السيارات في الخليج؟</div>
+            <div class="final-cta-text-main">جاهز تشوف مغسلتك بطريقة جديدة؟</div>
             <div class="final-cta-text-sub">
-              انضم كشريك مبكر في NahlTime، وساعدنا في تشكيل مستقبل أنظمة تشغيل المغاسل.
-              تنظيم أفضل، أرقام أوضح، وتجربة أهدى لك ولعملائك.
+              صور، ألوان، وأرقام بسيطة توضّح يومك. انضم كشريك مبكر في NahlTime وخلي تنظيم
+              اليوم جزءًا ممتعًا من الشغل، مو عبئ.
             </div>
           </div>
           <div class="final-cta-actions">
-            <button class="btn btn-dark" onclick="scrollToSection('founding')">
-              انضم كشريك مبكر
+            <button class="btn btn-dark" onclick="scrollToSection('screens')">
+              شوف شاشة اليوم
             </button>
-            <a class="btn btn-outline" href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener">
-              <i class="fa-brands fa-whatsapp"></i>
-              تواصل واتساب الآن
-            </a>
+            <button class="btn btn-outline" onclick="scrollToSection('contact')">
+              احجز تجربة حية
+            </button>
           </div>
         </div>
       </div>
@@ -2068,10 +1886,10 @@
           من فريق <strong>Nahl.app</strong>.
         </div>
         <div class="footer-links">
+          <a href="#gallery">صور</a>
           <a href="#features">المميزات</a>
-          <a href="#founding">الشركاء الأوائل</a>
+          <a href="#screens">شاشة اليوم</a>
           <a href="#pricing">الأسعار</a>
-          <a href="#faq">الأسئلة الشائعة</a>
           <a href="#contact">تواصل</a>
         </div>
       </div>
@@ -2083,7 +1901,6 @@
           <a href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener" aria-label="WhatsApp">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
-          <!-- أضف روابط X / Instagram عند الحاجة -->
         </div>
       </div>
     </div>
