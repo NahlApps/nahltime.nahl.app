@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>NahlTime — نظام التشغيل الجديد لمغاسل السيارات في الخليج</title>
+  <title>NahlTime — برنامج ذكي لإدارة حجوزات مغسلة سيارتك</title>
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,9 +38,7 @@
       --container-width: 1120px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -59,15 +57,8 @@
       min-height: 100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: 100%;
@@ -76,14 +67,9 @@
       padding: 0 1.5rem;
     }
 
-    section {
-      padding: 4.2rem 0;
-    }
-
+    section { padding: 4.2rem 0; }
     @media (min-width: 1024px) {
-      section {
-        padding: 5rem 0;
-      }
+      section { padding: 5rem 0; }
     }
 
     /* Navbar */
@@ -137,8 +123,8 @@
     .nav-links {
       display: none;
       align-items: center;
-      gap: 1.5rem;
-      font-size: 0.95rem;
+      gap: 1.4rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
     }
 
@@ -190,7 +176,6 @@
       color: #111827;
       box-shadow: 0 12px 24px rgba(250, 204, 21, 0.45);
     }
-
     .btn-primary:hover {
       transform: translateY(-1px);
       box-shadow: 0 16px 35px rgba(250, 204, 21, 0.5);
@@ -201,7 +186,6 @@
       border-color: rgba(148, 163, 184, 0.7);
       color: var(--text-main);
     }
-
     .btn-outline:hover {
       background: #ffffff;
       box-shadow: var(--shadow-subtle);
@@ -214,7 +198,6 @@
       border-color: #020617;
       box-shadow: 0 14px 30px rgba(15, 23, 42, 0.4);
     }
-
     .btn-dark:hover {
       transform: translateY(-1px);
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
@@ -252,30 +235,18 @@
       padding: 0.3rem 0;
     }
 
-    .mobile-menu .btn {
-      width: 100%;
-    }
+    .mobile-menu .btn { width: 100%; }
 
     @media (min-width: 900px) {
-      .nav-links {
-        display: flex;
-      }
-      .nav-cta-group {
-        display: flex;
-      }
+      .nav-links { display: flex; }
+      .nav-cta-group { display: flex; }
       .nav-toggle,
-      .mobile-menu {
-        display: none;
-      }
-      .navbar-inner {
-        height: 72px;
-      }
+      .mobile-menu { display: none; }
+      .navbar-inner { height: 72px; }
     }
 
     /* Hero */
-    .hero {
-      padding-top: 2.5rem;
-    }
+    .hero { padding-top: 2.5rem; }
 
     .hero-grid {
       display: grid;
@@ -326,9 +297,7 @@
     }
 
     @media (min-width: 900px) {
-      .hero-title {
-        font-size: 2.3rem;
-      }
+      .hero-title { font-size: 2.3rem; }
     }
 
     .hero-subtitle {
@@ -366,10 +335,7 @@
       margin-bottom: 1rem;
     }
 
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+    .hero-note { font-size: 0.8rem; color: var(--text-muted); }
 
     .hero-proof {
       display: flex;
@@ -400,18 +366,9 @@
       display: inline-block;
       margin-left: -8px;
     }
-
-    .hero-proof-avatars span:first-child {
-      margin-left: 0;
-    }
-
-    .hero-proof-avatars span:nth-child(2) {
-      background: linear-gradient(135deg, #22c55e, #a3e635);
-    }
-
-    .hero-proof-avatars span:nth-child(3) {
-      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-    }
+    .hero-proof-avatars span:first-child { margin-left: 0; }
+    .hero-proof-avatars span:nth-child(2) { background: linear-gradient(135deg, #22c55e, #a3e635); }
+    .hero-proof-avatars span:nth-child(3) { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
 
     /* Hero visual */
     .hero-visual {
@@ -490,10 +447,7 @@
       margin-bottom: 0.2rem;
     }
 
-    .hero-lane-meta {
-      font-size: 0.68rem;
-      color: #9ca3af;
-    }
+    .hero-lane-meta { font-size: 0.68rem; color: #9ca3af; }
 
     .hero-lane-tag {
       display: inline-flex;
@@ -553,18 +507,12 @@
     }
 
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-6px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     /* Logo strip */
-    .logo-strip {
-      padding: 2.2rem 0 0.8rem;
-    }
+    .logo-strip { padding: 2.2rem 0 0.8rem; }
 
     .logo-strip-inner {
       border-radius: 999px;
@@ -603,9 +551,7 @@
     }
 
     /* Section headers */
-    .section-header {
-      margin-bottom: 2rem;
-    }
+    .section-header { margin-bottom: 2rem; }
 
     .section-eyebrow {
       font-size: 0.78rem;
@@ -632,12 +578,9 @@
     }
 
     @media (min-width: 768px) {
-      .grid-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .grid-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
     .card {
@@ -653,22 +596,6 @@
       transform: translateY(-4px);
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
       border-color: rgba(250, 204, 21, 0.6);
-    }
-
-    .card-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.55rem;
-    }
-
-    .card-icon i {
-      color: #92400e;
-      font-size: 1rem;
     }
 
     .card-image {
@@ -703,11 +630,7 @@
       line-height: 1.7;
     }
 
-    /* Gallery */
-    .gallery-strip {
-      margin-top: 1.8rem;
-    }
-
+    /* Gallery strip */
     .image-strip {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -715,9 +638,7 @@
     }
 
     @media (min-width: 900px) {
-      .image-strip {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
+      .image-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
     .image-card {
@@ -737,9 +658,7 @@
       transition: transform 0.3s ease-out;
     }
 
-    .image-card:hover img {
-      transform: scale(1.06);
-    }
+    .image-card:hover img { transform: scale(1.06); }
 
     .image-card-caption {
       position: absolute;
@@ -760,85 +679,66 @@
       color: #facc15;
     }
 
-    /* Screens / product tour */
-    .screens-grid {
-      display: grid;
-      gap: 1.5rem;
+    /* Steps (how it works) */
+    .steps-grid { display: grid; gap: 1rem; }
+    @media (min-width: 768px) {
+      .steps-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
-    @media (min-width: 900px) {
-      .screens-grid {
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      }
+    .step-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 0.9rem 0.9rem 0.85rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+      font-size: 0.84rem;
     }
 
-    .screen-box {
-      border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color: #e5e7eb;
-      padding: 1.1rem 1rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      min-height: 220px;
-      font-size: 0.82rem;
-    }
-
-    .screen-box-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.7rem;
-    }
-
-    .screen-status-dot {
-      width: 8px;
-      height: 8px;
+    .step-number {
+      width: 24px;
+      height: 24px;
       border-radius: 999px;
-      background: #22c55e;
-    }
-
-    /* Band (founding program) */
-    .band {
-      border-radius: 22px;
-      padding: 1.3rem 1.2rem;
-      background: rgba(254, 243, 199, 0.95);
-      border: 1px solid rgba(250, 204, 21, 0.6);
-      box-shadow: 0 14px 36px rgba(250, 204, 21, 0.25);
-    }
-
-    @media (min-width: 900px) {
-      .band {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1.6rem 1.7rem;
-      }
-    }
-
-    .band-title {
-      font-size: 1.05rem;
-      font-weight: 700;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
       color: #92400e;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.4rem;
     }
 
-    .band-text {
-      font-size: 0.86rem;
-      color: #78350f;
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
     }
 
-    .band-actions {
+    .step-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Use cases pills */
+    .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.8rem;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
     }
 
-    @media (min-width: 900px) {
-      .band-actions {
-        margin-top: 0;
-        margin-right: 1.5rem;
-      }
+    .pill {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .pill-primary {
+      border-color: #facc15;
+      background: var(--primary-soft);
+      color: #92400e;
     }
 
     /* Testimonials */
@@ -994,9 +894,7 @@
       border: 1px solid var(--border-subtle);
     }
 
-    .contact-form-group {
-      margin-bottom: 0.8rem;
-    }
+    .contact-form-group { margin-bottom: 0.8rem; }
 
     .contact-label {
       display: block;
@@ -1005,9 +903,7 @@
       color: var(--text-main);
     }
 
-    .contact-label span {
-      color: #ef4444;
-    }
+    .contact-label span { color: #ef4444; }
 
     .contact-input,
     .contact-select,
@@ -1093,9 +989,7 @@
       color: #92400e;
     }
 
-    .aside-step-text {
-      font-size: 0.82rem;
-    }
+    .aside-step-text { font-size: 0.82rem; }
 
     .contact-whatsapp {
       display: inline-flex;
@@ -1105,14 +999,19 @@
       margin-top: 0.7rem;
     }
 
-    .contact-whatsapp i {
-      color: #22c55e;
+    .contact-whatsapp i { color: #22c55e; }
+
+    /* Trust (security & support) */
+    .trust-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+    @media (min-width: 768px) {
+      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     /* Final CTA */
-    .final-cta {
-      margin: 3rem 0 2rem;
-    }
+    .final-cta { margin: 3rem 0 2rem; }
 
     .final-cta-box {
       border-radius: 24px;
@@ -1140,9 +1039,7 @@
       margin-bottom: 0.2rem;
     }
 
-    .final-cta-text-sub {
-      font-size: 0.9rem;
-    }
+    .final-cta-text-sub { font-size: 0.9rem; }
 
     .final-cta-actions {
       display: flex;
@@ -1181,9 +1078,7 @@
       gap: 0.9rem;
     }
 
-    .footer-links a {
-      font-size: 0.8rem;
-    }
+    .footer-links a { font-size: 0.8rem; }
 
     .footer-bottom {
       display: flex;
@@ -1242,13 +1137,8 @@
       transform: translateX(-50%) translateY(4px);
     }
 
-    .toast-success {
-      background: #16a34a;
-    }
-
-    .toast-error {
-      background: #b91c1c;
-    }
+    .toast-success { background: #16a34a; }
+    .toast-error { background: #b91c1c; }
 
     /* Fade-in on scroll */
     .fade-section {
@@ -1279,24 +1169,26 @@
           <div class="brand-logo">Nt</div>
           <div>
             <div class="brand-text-title">NahlTime</div>
-            <div class="brand-text-sub">نظام تشغيل مغاسل السيارات في الخليج</div>
+            <div class="brand-text-sub">برنامج ذكي لإدارة حجوزات مغسلة سيارتك</div>
           </div>
         </div>
         <nav class="nav-links">
           <a href="#hero">الرئيسية</a>
-          <a href="#gallery">صور من أرض الواقع</a>
+          <a href="#problem">المشكلة</a>
           <a href="#features">المميزات</a>
-          <a href="#screens">شريط اليوم</a>
-          <a href="#founding">الشركاء الأوائل</a>
-          <a href="#contact">تجربة</a>
+          <a href="#how-it-works">كيف يعمل</a>
+          <a href="#use-cases">لمن NahlTime؟</a>
+          <a href="#pricing">الأسعار</a>
+          <a href="#faq">الأسئلة</a>
+          <a href="#contact">تواصل</a>
         </nav>
         <div class="nav-cta-group">
           <button class="btn btn-outline" onclick="scrollToSection('contact')">
             <i class="fa-brands fa-whatsapp"></i>
             تواصل واتساب
           </button>
-          <button class="btn btn-primary" onclick="scrollToSection('founding')">
-            انضم كشريك مبكر
+          <button class="btn btn-primary" onclick="scrollToSection('contact')">
+            احجز تجربة مجانية
           </button>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة">
@@ -1305,14 +1197,14 @@
       </div>
       <div class="mobile-menu" id="mobileMenu">
         <a href="#hero" onclick="toggleMobileMenu()">الرئيسية</a>
-        <a href="#gallery" onclick="toggleMobileMenu()">صور</a>
+        <a href="#problem" onclick="toggleMobileMenu()">المشكلة</a>
         <a href="#features" onclick="toggleMobileMenu()">المميزات</a>
-        <a href="#screens" onclick="toggleMobileMenu()">شاشة النظام</a>
-        <a href="#founding" onclick="toggleMobileMenu()">الشركاء الأوائل</a>
+        <a href="#how-it-works" onclick="toggleMobileMenu()">كيف يعمل</a>
+        <a href="#use-cases" onclick="toggleMobileMenu()">لمن؟</a>
         <a href="#pricing" onclick="toggleMobileMenu()">الأسعار</a>
         <a href="#faq" onclick="toggleMobileMenu()">الأسئلة</a>
-        <button class="btn btn-primary" onclick="scrollToSection('founding'); toggleMobileMenu();">
-          انضم كشريك مبكر
+        <button class="btn btn-primary" onclick="scrollToSection('contact'); toggleMobileMenu();">
+          احجز تجربة مجانية
         </button>
         <button class="btn btn-outline" onclick="scrollToSection('contact'); toggleMobileMenu();">
           <i class="fa-brands fa-whatsapp"></i>
@@ -1323,49 +1215,54 @@
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- 1. HERO -->
     <section id="hero" class="hero fade-section">
       <div class="container">
         <div class="hero-grid">
           <div>
             <div class="hero-pill">
               <span class="highlight">برنامج الشركاء الأوائل</span>
-              <span>لمغاسل السيارات والمقاهي في السعودية والخليج</span>
+              <span>لمغاسل السيارات والمقاهي والأساطيل في الخليج</span>
             </div>
             <h1 class="hero-title">
-              خلي يوم المغسلة واضح… بالصور والأرقام من شاشة واحدة
+              برنامج ذكي لإدارة حجوزات مغسلة سيارتك في دقائق… مو ساعات
             </h1>
             <p class="hero-subtitle">
-              NahlTime ينظّم حجوزات الغسيل، المسارات، وتنبيهات الواتساب في لوحة بسيطة بالعربي.
+              NahlTime يجمع حجوزات الغسيل، المسارات، والفريق في لوحة واحدة
+              بالعربي، مع تنبيهات واتساب جاهزة للعميل.
             </p>
             <div class="hero-bullets">
               <div class="hero-bullet">
                 <i class="fa-solid fa-check"></i>
-                <span>يدعم الجوال والكمبيوتر</span>
+                <span>كل الحجوزات في شاشة واحدة واضحة</span>
               </div>
               <div class="hero-bullet">
                 <i class="fa-solid fa-check"></i>
-                <span>مصمم خصيصًا لمغاسل السيارات</span>
+                <span>تنبيهات واتساب تلقائية بدون تعبيد يدوي</span>
+              </div>
+              <div class="hero-bullet">
+                <i class="fa-solid fa-check"></i>
+                <span>مصمم للمغاسل والمقاهي في الخليج</span>
               </div>
             </div>
             <div class="hero-cta-row">
-              <button class="btn btn-primary" onclick="scrollToSection('screens')">
-                شاهد يوم مغسلتك داخل NahlTime
-                <i class="fa-regular fa-circle-play"></i>
+              <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                احجز تجربة مجانية ٧ أيام
+                <i class="fa-solid fa-arrow-left-long"></i>
               </button>
-              <button class="btn btn-outline" onclick="scrollToSection('contact')">
-                احجز تجربة حية
+              <button class="btn btn-outline" onclick="scrollToSection('how-it-works')">
+                شاهد كيف يعمل في ٣ خطوات
               </button>
             </div>
             <div class="hero-note">
-              مكالمة واحدة خفيفة… بعدها تشوف النظام على شغلك الحقيقي.
+              في أقل من ٥ ثواني تعرف: ماذا يفعل NahlTime، لمن، وما الخطوة التالية ✅
             </div>
             <div class="hero-proof">
               <div class="hero-proof-avatars">
                 <span></span><span></span><span></span>
               </div>
               <div>
-                شركاؤنا الأوائل: <strong>AutoSpa</strong> · <strong>Carfection</strong> · <strong>Simplicity Coffee</strong>.
+                يعمل مع <strong>AutoSpa</strong>، <strong>Carfection</strong>، <strong>Simplicity Coffee</strong> وشركاء آخرين.
               </div>
             </div>
           </div>
@@ -1409,26 +1306,26 @@
               </div>
             </div>
             <div class="hero-floating-badge">
-              +٣٢٪ تنظيم أفضل للحجوزات
+              +٣٢٪ تنظيم أفضل للحجوزات خلال ٣ أشهر
             </div>
             <div class="hero-floating-card">
               <div><strong><span class="dot"></span>الحجز القادم</strong></div>
               <div>10:15 ص · غسيل كامل · عميل جديد</div>
-              <small>تم تأكيد الموعد بالواتساب، الفريق شايفه في الجدول.</small>
+              <small>تم تأكيد الموعد بالواتساب، والفريق شايفه في الجدول.</small>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Logos strip -->
+    <!-- Logos (social proof) -->
     <section class="logo-strip fade-section">
       <div class="container">
         <div class="logo-strip-inner">
           <div>
-            <div>شركاؤنا في تجربة NahlTime:</div>
+            <div>شركاؤنا في تجربة وتطوير NahlTime:</div>
             <div class="logo-caption">
-              نطوّر المميزات بصحبة شركاء حقيقيين من السوق.
+              نطوّر المميزات مع مغاسل ومقاهي حقيقية من السعودية وقطر.
             </div>
           </div>
           <div class="logos">
@@ -1441,14 +1338,48 @@
       </div>
     </section>
 
-    <!-- Gallery: more images, less text -->
-    <section id="gallery" class="fade-section">
+    <!-- 2. Problem → Solution -->
+    <section id="problem" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">صور من أرض الواقع</div>
-          <h2 class="section-title">شوف المغسلة والفريق قبل ما تسمع الشرح</h2>
+          <div class="section-eyebrow">المشكلة التي نحلّها</div>
+          <h2 class="section-title">اليوم… إدارة الحجوزات في المغسلة تستهلك وقتك أكثر من اللازم</h2>
           <p class="section-subtitle">
-            لقطات سريعة توضح الجو العام: استقبال السيارة، الفريق، الشاشة، والتقارير.
+            إذا كان يومك يعتمد على مكالمات ودفاتر وواتساب متشتت، فالغالب:
+          </p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-label">المشاكل الشائعة</div>
+            <div class="card-title">٣ أشياء تتكرر في أغلب المغاسل</div>
+            <ul class="pricing-features" style="margin-top:0.4rem;">
+              <li><i class="fa-solid fa-xmark"></i>جداول يدوية وملفات إكسل تضيع وقتك.</li>
+              <li><i class="fa-solid fa-xmark"></i>لا صورة واضحة لعدد السيارات في كل ساعة.</li>
+              <li><i class="fa-solid fa-xmark"></i>تنبيهات العملاء تتم يدويًا أو لا تتم.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-label">حل NahlTime</div>
+            <div class="card-title">من فوضى الواتساب… إلى لوحة تحكم بسيطة</div>
+            <div class="card-text">
+              <strong>NahlTime</strong> يجمع كل حجوزاتك في لوحة واحدة:
+              <br>• تلقائيًا ينظّم السعة لكل ساعة حسب عدد المسارات.
+              <br>• يرسل تنبيهات واتساب للعميل في الوقت المناسب.
+              <br>• يعطيك نظرة سريعة على اليوم بالألوان، بدون قراءة أرقام كثيرة.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery: visual story -->
+    <section class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">لقطات من أرض الواقع</div>
+          <h2 class="section-title">قبل ما نطوّل في الكلام… شوف الجو العام</h2>
+          <p class="section-subtitle">
+            استقبال السيارة، الفريق في الميدان، وشاشة NahlTime في المكتب.
           </p>
         </div>
         <div class="image-strip">
@@ -1456,7 +1387,7 @@
             <img src="https://images.pexels.com/photos/6872596/pexels-photo-6872596.jpeg?auto=compress&cs=tinysrgb&w=800" alt="استقبال سيارة في المغسلة" />
             <div class="image-card-caption">
               <i class="fa-solid fa-car-side"></i>
-              استقبال السيارة وتنظيم الدور
+              استقبال وتنظيم الدور
             </div>
           </div>
           <div class="image-card">
@@ -1477,21 +1408,21 @@
             <img src="https://images.pexels.com/photos/7561962/pexels-photo-7561962.jpeg?auto=compress&cs=tinysrgb&w=800" alt="اجتماع لمراجعة تقارير الأداء" />
             <div class="image-card-caption">
               <i class="fa-solid fa-chart-column"></i>
-              مراجعة التقارير الأسبوعية
+              مراجعة أرقام الأسبوع
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features: with mini images -->
+    <!-- 3. Features as benefits -->
     <section id="features" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">المميزات الأساسية</div>
-          <h2 class="section-title">أهم ما يقدمه NahlTime… بالصور</h2>
+          <div class="section-eyebrow">كيف يساعدك NahlTime؟</div>
+          <h2 class="section-title">المميزات… لكن بصيغة النتائج التي تهمك</h2>
           <p class="section-subtitle">
-            ركّزنا على ثلاث مناطق رئيسية: جدول اليوم، الواتساب، والتقارير.
+            لا أحد يهتم بعدد الأزرار في الشاشة؛ المهم: ماذا يتغيّر في يومك بعد استخدام النظام؟
           </p>
         </div>
         <div class="grid grid-3">
@@ -1499,128 +1430,162 @@
             <div class="card-image">
               <img src="https://images.pexels.com/photos/7640120/pexels-photo-7640120.jpeg?auto=compress&cs=tinysrgb&w=800" alt="تقويم حجوزات مغسلة سيارات" />
             </div>
-            <div class="card-label">الجدول</div>
-            <div class="card-title">جدول اليوم واضح لكل مسار</div>
+            <div class="card-label">رؤية اليوم</div>
+            <div class="card-title">تابع كل الحجوزات في مكان واحد</div>
             <div class="card-text">
-              عرض بصري للحجوزات في اليوم، بالساعات والألوان. تقدر تعرف الضغط خلال ثواني.
+              تقويم يومي وأسبوعي يوضح عدد السيارات في كل ساعة، وحالة كل حجز بالألوان.
             </div>
           </div>
           <div class="card">
             <div class="card-image">
               <img src="https://images.pexels.com/photos/5076515/pexels-photo-5076515.jpeg?auto=compress&cs=tinysrgb&w=800" alt="رسائل واتساب للعملاء" />
             </div>
-            <div class="card-label">الواتساب</div>
-            <div class="card-title">رسائل تأكيد وتذكير تلقائية</div>
+            <div class="card-label">التواصل</div>
+            <div class="card-title">أرسل تنبيهات واتساب تلقائيًا</div>
             <div class="card-text">
-              العميل يستلم رسالة تأكيد وتذكير وشكر… بدون ما تحتاج تتصل يدويًا.
+              تأكيد، تذكير، وشكر بعد الغسيل… برسائل جاهزة قابلة للتعديل، بدون جهد يومي.
             </div>
           </div>
           <div class="card">
             <div class="card-image">
               <img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=800" alt="تقارير وأرقام أداء" />
             </div>
-            <div class="card-label">التقارير</div>
-            <div class="card-title">أرقام بسيطة توضح الصورة</div>
+            <div class="card-label">التحليل</div>
+            <div class="card-title">شاهد الأرقام بدل الاعتماد على الإحساس</div>
             <div class="card-text">
-              عدد السيارات، أفضل الأيام، وأكثر الخدمات طلبًا… في تقارير سهلة القراءة.
+              عدد السيارات، أكثر الأيام نشاطًا، وأكثر الخدمات طلبًا… في تقارير بسيطة.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.pexels.com/photos/7092611/pexels-photo-7092611.jpeg?auto=compress&cs=tinysrgb&w=800" alt="فريق يعمل معًا" />
+            </div>
+            <div class="card-label">الفريق</div>
+            <div class="card-title">صلاحيات متعددة للفريق والمالكين</div>
+            <div class="card-text">
+              أعطِ المشرفين صلاحية متابعة الجدول، والمالكين صلاحية متابعة الأرقام فقط.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800" alt="سحابة وأمان" />
+            </div>
+            <div class="card-label">المرونة</div>
+            <div class="card-title">يعمل من أي جهاز متصل بالإنترنت</div>
+            <div class="card-text">
+              لا حاجة لتركيب أجهزة خاصة؛ افتح المتصفح من الجوال، التابلت، أو اللابتوب.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image">
+              <img src="https://images.pexels.com/photos/1181555/pexels-photo-1181555.jpeg?auto=compress&cs=tinysrgb&w=800" alt="دعم ومساعدة" />
+            </div>
+            <div class="card-label">الدعم</div>
+            <div class="card-title">فريق نحل معك خطوة بخطوة</div>
+            <div class="card-text">
+              إعداد أولي، تدريب بسيط بالفيديو، ودعم عبر واتساب عند الحاجة.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Screens / product tour -->
-    <section id="screens" class="fade-section">
+    <!-- 4. How it works -->
+    <section id="how-it-works" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">داخل النظام</div>
-          <h2 class="section-title">هكذا يبان يومك عندما تدير المغسلة بـ NahlTime</h2>
+          <div class="section-eyebrow">كيف يعمل؟</div>
+          <h2 class="section-title">٣–٤ خطوات بسيطة لتشغيل NahlTime في مغسلتك</h2>
           <p class="section-subtitle">
-            لقطات شاشة مُمثّلة لشاشة اليوم والحجز الجديد والتقرير الأسبوعي.
+            نريدك أن تشعر أن الموضوع سهل… لا مشروع تقني معقد.
           </p>
         </div>
-        <div class="screens-grid">
-          <div class="screen-box">
-            <div class="screen-box-header">
-              <div style="display:flex;align-items:center;gap:0.4rem;">
-                <div style="display:flex;gap:0.25rem;">
-                  <span style="width:8px;height:8px;border-radius:999px;background:#f97316;"></span>
-                  <span style="width:8px;height:8px;border-radius:999px;background:#facc15;"></span>
-                  <span style="width:8px;height:8px;border-radius:999px;background:#22c55e;"></span>
-                </div>
-                <span style="font-size:0.8rem;color:#9ca3af;">لوحة تحكم اليوم</span>
-              </div>
-              <div class="screen-status-dot"></div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">١</div>
+            <div class="step-title">احجز مكالمة سريعة</div>
+            <div class="step-text">
+              نتعرّف فيها على نوع نشاطك، عدد الفروع، وعدد المسارات، وطريقة عملك الحالية.
             </div>
-            <p style="margin:0 0 0.5rem;">
-              شاشة واحدة توضّح عدد السيارات في كل ساعة، والسعة المتاحة لكل مسار.
-            </p>
-            <p style="margin:0;">
-              الألوان توضّح: أوقات ممتلئة، أوقات مناسبة للعروض، وأوقات هادئة.
-            </p>
           </div>
-          <div class="grid" style="gap:1rem;">
-            <div class="card" style="box-shadow:0 12px 28px rgba(15,23,42,0.08);">
-              <div class="card-label">الحجز</div>
-              <div class="card-title">شاشة حجز جديد</div>
-              <div class="card-text">
-                اختيار نوع السيارة، الخدمة، الوقت والمسار… في نموذج واحد بسيط.
-              </div>
+          <div class="step-card">
+            <div class="step-number">٢</div>
+            <div class="step-title">نضبط الإعدادات الأساسية</div>
+            <div class="step-text">
+              نضيف خدماتك وأسعارك، ونحدد السعة لكل ساعة ومسار، ونربط الواتساب إذا رغبت.
             </div>
-            <div class="card" style="box-shadow:0 12px 28px rgba(15,23,42,0.08);">
-              <div class="card-label">التقرير</div>
-              <div class="card-title">تقرير أسبوعي مختصر</div>
-              <div class="card-text">
-                عدد السيارات لكل يوم، ومتوسط اليوم الأكثر نشاطًا، بدون تعقيد.
-              </div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">٣</div>
+            <div class="step-title">ابدأ يوم تجريبي حقيقي</div>
+            <div class="step-text">
+              ندير معك يومًا حقيقيًا على النظام: استقبال، حجز، متابعة، وتنبيه للعميل.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-number">٤</div>
+            <div class="step-title">تابع الأرقام والنتائج</div>
+            <div class="step-text">
+              بعد أول أسبوع، نراجع معك الأثر: تنظيم، وقت أقل، وأرقام أوضح لاتخاذ قرار الاشتراك.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Founding partners program -->
-    <section id="founding" class="fade-section">
+    <!-- 5. Use cases / who it's for -->
+    <section id="use-cases" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">الشركاء الأوائل</div>
-          <h2 class="section-title">كن من أوائل من يجرب ويشكّل NahlTime</h2>
+          <div class="section-eyebrow">لمن NahlTime؟</div>
+          <h2 class="section-title">نفس المشكلة بصور مختلفة… والحل واحد</h2>
           <p class="section-subtitle">
-            عدد محدود من المغاسل والمقاهي والأساطيل ننطلق معهم في هذه المرحلة.
+            اختر الشريحة الأقرب لك، وتخيّل كيف يكون يومك مع جدول واضح وتنبيهات جاهزة.
           </p>
         </div>
-        <div class="band">
-          <div>
-            <div class="band-title">مزايا برنامج الشركاء الأوائل</div>
-            <div class="band-text">
-              صور، جلسات، وتجارب حية على شغلك مقابل سعر ثابت مميز.
+        <div class="pill-row">
+          <span class="pill pill-primary">ورش ومغاسل مستقلة</span>
+          <span class="pill">كوفي يقدم غسيل أثناء الجلسة</span>
+          <span class="pill">شركات أسطول وتأجير</span>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-label">مغاسل مستقلة</div>
+            <div class="card-title">لملاك مغاسل السيارات</div>
+            <div class="card-text">
+              توقف تداخل المواعيد، وتعرف بالضبط كم سيارة تخدمها يوميًا، وأي الأيام تحتاج فيها
+              عروض أو زيادة فريق.
             </div>
-            <ul class="pricing-features" style="margin-top:0.6rem;">
-              <li><i class="fa-solid fa-check"></i>سعر ثابت مميز يبقى معك عند التوسع.</li>
-              <li><i class="fa-solid fa-check"></i>أولوية في المميزات التي تقترحها.</li>
-              <li><i class="fa-solid fa-check"></i>قناة واتساب مباشرة مع فريق نحل.</li>
-              <li><i class="fa-solid fa-check"></i>جلسات مراجعة أرقام وصور من أرض الواقع.</li>
-            </ul>
           </div>
-          <div class="band-actions">
-            <button class="btn btn-dark" onclick="scrollToSection('contact')">
-              أريد أن أكون شريكًا مبكرًا
-            </button>
-            <a class="btn btn-outline" href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener">
-              <i class="fa-brands fa-whatsapp"></i>
-              تواصل مباشرة في واتساب
-            </a>
+          <div class="card">
+            <div class="card-label">كوفي + غسيل</div>
+            <div class="card-title">لصاحبي المقاهي مع خدمة غسيل</div>
+            <div class="card-text">
+              تربط وقت جلوس العميل بوقت غسيل سيارته، وتمنع الزحمة عند الباب عند خروج أكثر من
+              عميل في نفس اللحظة.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-label">أساطيل</div>
+            <div class="card-title">لشركات الأسطول والتأجير</div>
+            <div class="card-text">
+              تنظّم غسيل سيارات الأسطول خلال الأسبوع، وتتابع عدد السيارات المغسولة لكل موقع
+              بدون جداول يدوية.
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="fade-section">
+    <!-- 6. Social proof: testimonials -->
+    <section id="results" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">آراء الشركاء</div>
-          <h2 class="section-title">صور + كلمة بسيطة من الشركاء الأوائل</h2>
+          <div class="section-eyebrow">نتائج وآراء</div>
+          <h2 class="section-title">النتيجة الأهم: يوم أهدى… وتنظيم أفضل</h2>
+          <p class="section-subtitle">
+            بعض ما سمعناه من الشركاء الأوائل بعد أول أسابيع من التجربة.
+          </p>
         </div>
         <div class="grid grid-3">
           <div class="card testimonial">
@@ -1628,7 +1593,8 @@
               <img src="https://images.pexels.com/photos/5717694/pexels-photo-5717694.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Simplicity Coffee" />
             </div>
             <div class="testimonial-quote">
-              "NahlTime ساعدنا نربط وقت جلوس العميل بوقت غسيل سيارته… الزحمة عند الباب قلت."
+              "NahlTime ساعدنا نربط وقت جلوس العميل بوقت غسيل سيارته… الزحمة عند الباب قلت
+              بشكل واضح."
             </div>
             <div class="testimonial-meta">
               <div>
@@ -1643,7 +1609,7 @@
               <img src="https://images.pexels.com/photos/6872594/pexels-photo-6872594.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Car wash owner" />
             </div>
             <div class="testimonial-quote">
-              "العمال شافوا الجدول بشكل بصري بسيط… ما احتجنا شروحات طويلة."
+              "العمال شافوا الجدول بشكل بصري بسيط… ما احتجنا شروحات طويلة أو كتيبات."
             </div>
             <div class="testimonial-meta">
               <div>
@@ -1658,7 +1624,8 @@
               <img src="https://images.pexels.com/photos/5835359/pexels-photo-5835359.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Fleet manager" />
             </div>
             <div class="testimonial-quote">
-              "أقدر الآن أشوف عدد سيارات الأسطول المغسولة كل أسبوع بدون ما أسأل أحد."
+              "أقدر الآن أشوف عدد سيارات الأسطول المغسولة كل أسبوع بدون ما أطلب تقرير يدوي
+              من أحد."
             </div>
             <div class="testimonial-meta">
               <div>
@@ -1671,14 +1638,14 @@
       </div>
     </section>
 
-    <!-- Pricing -->
+    <!-- 7. Pricing & plans -->
     <section id="pricing" class="fade-section">
       <div class="container">
         <div class="section-header">
           <div class="section-eyebrow">الأسعار</div>
-          <h2 class="section-title">سعر أخف من راتب موظف… ويشتغل 24/7</h2>
+          <h2 class="section-title">أسعار أبسط من تعيين موظف إضافي… ويعمل ٢٤/٧</h2>
           <p class="section-subtitle">
-            في مرحلة الشركاء الأوائل، نثبت لك سعرًا مميزًا ونمشي معك بصورة قريبة.
+            نبدأ معك كبداية شريك مبكر، بسعر ثابت مميز، ونراجع الأثر قبل أي التزام طويل.
           </p>
         </div>
         <div class="pricing-grid">
@@ -1690,10 +1657,10 @@
               <span class="pricing-price-period">ريال / شهر</span>
             </div>
             <ul class="pricing-features">
-              <li><i class="fa-solid fa-check"></i>تقويم حجوزات كامل لفرع واحد</li>
-              <li><i class="fa-solid fa-check"></i>تنبيهات واتساب أساسية</li>
-              <li><i class="fa-solid fa-check"></i>تدريب أولي للفريق ودعم واتساب</li>
-              <li><i class="fa-solid fa-check"></i>سعر ثابت في مرحلة الشركاء الأوائل</li>
+              <li><i class="fa-solid fa-check"></i>تقويم حجوزات كامل لفرع واحد.</li>
+              <li><i class="fa-solid fa-check"></i>تنبيهات واتساب أساسية.</li>
+              <li><i class="fa-solid fa-check"></i>تدريب أولي للفريق ودعم واتساب.</li>
+              <li><i class="fa-solid fa-check"></i>سعر ثابت في مرحلة الشركاء الأوائل.</li>
             </ul>
             <button class="btn btn-primary" onclick="scrollToSection('contact')">
               ابدأ كفرع شريك مبكر
@@ -1705,63 +1672,112 @@
               <span class="pricing-price-main">عرض مخصص</span>
             </div>
             <ul class="pricing-features">
-              <li><i class="fa-solid fa-check"></i>لوحة تحكم موحدة لجميع الفروع</li>
-              <li><i class="fa-solid fa-check"></i>صلاحيات للمشرفين والمديرين</li>
-              <li><i class="fa-solid fa-check"></i>تنبيهات واتساب متقدمة وتقارير إضافية</li>
-              <li><i class="fa-solid fa-check"></i>برنامج شريك مبكر بمزايا موسعة</li>
+              <li><i class="fa-solid fa-check"></i>لوحة تحكم موحدة لجميع الفروع.</li>
+              <li><i class="fa-solid fa-check"></i>صلاحيات للمشرفين والمديرين.</li>
+              <li><i class="fa-solid fa-check"></i>تنبيهات واتساب متقدمة وتقارير إضافية.</li>
+              <li><i class="fa-solid fa-check"></i>برنامج شريك مبكر بمزايا موسعة.</li>
             </ul>
             <button class="btn btn-outline" onclick="scrollToSection('contact')">
-              اطلب عرض للشركاء الأوائل
+              اطلب عرض سعر للشركاء الأوائل
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="fade-section">
+    <!-- 8–9. Security & Support -->
+    <section id="trust" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">أسئلة متكررة</div>
-          <h2 class="section-title">إجابات سريعة قبل ما تتواصل معنا</h2>
+          <div class="section-eyebrow">الأمان والدعم</div>
+          <h2 class="section-title">نأخذ بياناتك وتجربتك بجدية</h2>
+          <p class="section-subtitle">
+            حتى لو كان المشروع في مرحلة الشركاء الأوائل، نلتزم بمعايير واضحة في الأمان
+            والدعم.
+          </p>
         </div>
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-question">هل أقدر ألغيه في أي وقت؟</div>
-            <div class="faq-answer">
-              نعم، تقدر توقف الاشتراك في أي وقت. ما نحب العقود المعقدة.
+        <div class="trust-grid">
+          <div class="card">
+            <div class="card-label">الأمان والموثوقية</div>
+            <div class="card-title">استضافة سحابية آمنة ونسخ احتياطي</div>
+            <div class="card-text">
+              يتم تخزين البيانات في بيئة سحابية آمنة، مع نسخ احتياطي دوري واسترجاع عند الحاجة.
+              نستخدم ممارسات حديثة لحماية الوصول، ونتعامل مع بياناتك بسرية تامة.
             </div>
           </div>
-          <div class="faq-item">
-            <div class="faq-question">هل يعمل على الجوال؟</div>
-            <div class="faq-answer">
-              نعم، من المتصفح على الجوال أو التابلت أو اللابتوب، بدون تحميل تطبيق.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">هل فيه تجربة مجانية؟</div>
-            <div class="faq-answer">
-              نعم، تجربة حقيقية على شغلك، وليس فقط عرض شرائح PowerPoint.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">هل تدعمون اللغة العربية؟</div>
-            <div class="faq-answer">
-              النظام مصمم للعربي والخليجي أولًا، مع إمكانية إضافة إنجليزي عند الحاجة.
+          <div class="card">
+            <div class="card-label">التدريب والدعم</div>
+            <div class="card-title">لن نتركك وحدك بعد الاشتراك</div>
+            <div class="card-text">
+              <strong>اللغة:</strong> عربي (خليجي) + إنجليزي عند الحاجة.<br>
+              <strong>الدعم:</strong> واتساب، مكالمات قصيرة، وفيديوهات شروحات.<br>
+              <strong>الاستجابة:</strong> عادة نرد خلال ٢٤ ساعة في أيام العمل.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact / Demo -->
+    <!-- 10. FAQ -->
+    <section id="faq" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">الأسئلة الشائعة</div>
+          <h2 class="section-title">أسئلة من أصحاب مغاسل مثلك</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">ماذا أحتاج لأبدأ؟</div>
+            <div class="faq-answer">
+              تحتاج جهاز متصل بالإنترنت (جوال، تابلت، أو كمبيوتر)، وحساب واتساب مخصص للفرع
+              إن رغبت باستخدام تنبيهات الواتساب. الباقي نساعدك فيه خطوة بخطوة.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل أقدر ألغيه في أي وقت؟</div>
+            <div class="faq-answer">
+              نعم، يمكنك إيقاف الاشتراك في أي وقت. لا نستخدم عقودًا معقدة طويلة الأمد.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل يوجد تجربة مجانية؟</div>
+            <div class="faq-answer">
+              نعم، نوفّر تجربة عملية لمدة ٧ أيام على شغلك الحقيقي، قبل أن تقرر الاستمرار.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل تدعمون تكامل مع واتساب؟</div>
+            <div class="faq-answer">
+              نعم، NahlTime مصمم ليعمل مع واجهات واتساب API عبر مزودين موثوقين، مع رسائل
+              جاهزة قابلة للتعديل بحسب نشاطك.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل تقدمون خصائص خاصة على حسب طلبي؟</div>
+            <div class="faq-answer">
+              في برنامج الشركاء الأوائل، نناقش احتياجاتك ونضيف المزايا التي تفيد أكثر من
+              عميل واحد قدر الإمكان. نكون صريحين إذا كانت الميزة خارج نطاق المنتج.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل بياناتي آمنة؟</div>
+            <div class="faq-answer">
+              نعم، تتم استضافة البيانات بشكل آمن، مع صلاحيات وصول محددة، ونسخ احتياطي دوري.
+              لن نشارك بياناتك مع أي طرف خارجي بدون إذنك.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Strong final CTA + Form -->
     <section id="contact" class="fade-section">
       <div class="container">
         <div class="section-header">
-          <div class="section-eyebrow">خطوة بسيطة</div>
-          <h2 class="section-title">احجز تجربة عملية لـ NahlTime على نشاطك</h2>
+          <div class="section-eyebrow">الخطوة التالية</div>
+          <h2 class="section-title">جاهز تبسط يومك؟ احجز تجربة مجانية لـ NahlTime</h2>
           <p class="section-subtitle">
-            عبئ بياناتك، نرجع لك بمكالمة أو واتساب ونمشي معك على النظام خطوة خطوة.
+            تجربة حقيقية، بدون التزام، هدفها واحد: هل NahlTime مناسب لمغسلتك أم لا؟
           </p>
         </div>
         <div class="contact-grid">
@@ -1775,7 +1791,7 @@
                 <label class="contact-label">رقم الجوال (مع مفتاح الدولة) <span>*</span></label>
                 <input type="tel" id="phone" name="phone" class="contact-input" placeholder="+9665XXXXXXXX" required />
                 <div class="contact-hint">
-                  نستخدم الرقم فقط للتواصل معك حول NahlTime. لن نشارك رقمك.
+                  نستخدم الرقم فقط للتواصل معك حول NahlTime. لا نشارك رقمك مع أي طرف آخر.
                 </div>
               </div>
               <div class="contact-form-group">
@@ -1807,24 +1823,24 @@
                 ></textarea>
               </div>
               <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;margin-top:0.4rem;">
-                إرسال الطلب والتجربة
+                إرسال الطلب وحجز التجربة
               </button>
               <div class="contact-footer-note">
                 <i class="fa-solid fa-shield-heart"></i>
-                <span>مكالمة أو رسالة واحدة هادئة، لا سبام ولا إزعاج.</span>
+                <span>مكالمة أو رسالة واحدة هادئة، بدون سبام أو إزعاج.</span>
               </div>
             </form>
           </div>
 
           <div class="contact-aside">
-            <div>كيف تكون التجربة؟</div>
+            <div>ماذا يحدث بعد تعبئة النموذج؟</div>
             <div class="contact-aside-steps">
               <div class="aside-step">
                 <div class="aside-step-icon">
                   <i class="fa-solid fa-phone"></i>
                 </div>
                 <div class="aside-step-text">
-                  مكالمة/واتساب قصيرة نفهم فيها وضعك الحالي وأسئلتك.
+                  نتواصل معك خلال ٢٤ ساعة عبر واتساب أو اتصال خفيف.
                 </div>
               </div>
               <div class="aside-step">
@@ -1832,7 +1848,7 @@
                   <i class="fa-solid fa-display"></i>
                 </div>
                 <div class="aside-step-text">
-                  نعرض لك النظام بلقطات حية تناسب نشاطك.
+                  نعرض لك النظام بلقطات حية مرتبطة بنوع نشاطك.
                 </div>
               </div>
               <div class="aside-step">
@@ -1840,13 +1856,13 @@
                   <i class="fa-solid fa-car-side"></i>
                 </div>
                 <div class="aside-step-text">
-                  نجرّب يوم حقيقي (افتراضي) من استقبال السيارة حتى التقرير.
+                  نجرّب يومًا افتراضيًا حقيقيًا من استقبال السيارة حتى التقرير.
                 </div>
               </div>
             </div>
             <a href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener" class="contact-whatsapp">
               <i class="fa-brands fa-whatsapp"></i>
-              <span>تواصل فورًا في واتساب (بدون فورم)</span>
+              <span>أو تواصل فورًا في واتساب (بدون فورم)</span>
             </a>
           </div>
         </div>
@@ -1858,19 +1874,20 @@
       <div class="container">
         <div class="final-cta-box">
           <div>
-            <div class="final-cta-text-main">جاهز تشوف مغسلتك بطريقة جديدة؟</div>
+            <div class="final-cta-text-main">جاهز تبسط شغل المغسلة وتستمتع بالأرقام الواضحة؟</div>
             <div class="final-cta-text-sub">
-              صور، ألوان، وأرقام بسيطة توضّح يومك. انضم كشريك مبكر في NahlTime وخلي تنظيم
-              اليوم جزءًا ممتعًا من الشغل، مو عبئ.
+              NahlTime يجمع القصة، الإثبات، والخطوة التالية في صفحة واحدة.
+              جرّبه ٧ أيام مجانًا، وقرّر بعدها وأنت مرتاح.
             </div>
           </div>
           <div class="final-cta-actions">
-            <button class="btn btn-dark" onclick="scrollToSection('screens')">
-              شوف شاشة اليوم
+            <button class="btn btn-dark" onclick="scrollToSection('contact')">
+              احجز تجربة مجانية الآن
             </button>
-            <button class="btn btn-outline" onclick="scrollToSection('contact')">
-              احجز تجربة حية
-            </button>
+            <a class="btn btn-outline" href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i>
+              تواصل في واتساب
+            </a>
           </div>
         </div>
       </div>
@@ -1882,14 +1899,15 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <strong>NahlTime</strong> — نظام تشغيل بسيط وذكي لمغاسل السيارات في السعودية والخليج،
+          <strong>NahlTime</strong> — برنامج ذكي وبسيط لإدارة حجوزات مغاسل السيارات في السعودية والخليج،
           من فريق <strong>Nahl.app</strong>.
         </div>
         <div class="footer-links">
-          <a href="#gallery">صور</a>
+          <a href="#problem">المشكلة</a>
           <a href="#features">المميزات</a>
-          <a href="#screens">شاشة اليوم</a>
+          <a href="#how-it-works">كيف يعمل</a>
           <a href="#pricing">الأسعار</a>
+          <a href="#faq">الأسئلة</a>
           <a href="#contact">تواصل</a>
         </div>
       </div>
@@ -1907,17 +1925,10 @@
   </footer>
 
   <script>
-    // ========================
-    // CONFIG
-    // ========================
-    // IMPORTANT:
-    // Replace this with your deployed proxy endpoint that forwards to Apps Script Web App.
-    // Example: https://your-domain.com/api/nahltime-lead
+    // CONFIG – غيّر هذا لمسار الـ proxy عندك
     const API_URL = "https://your-domain.com/api/nahltime-lead";
 
-    // ========================
-    // Navbar (mobile menu)
-    // ========================
+    // Navbar (mobile)
     const navToggle = document.getElementById("navToggle");
     const mobileMenu = document.getElementById("mobileMenu");
 
@@ -1941,9 +1952,7 @@
       }
     }
 
-    // ========================
     // Toast
-    // ========================
     const toastEl = document.getElementById("toast");
     const toastMsgEl = document.getElementById("toastMessage");
     const toastIconEl = document.getElementById("toastIcon");
@@ -1965,9 +1974,7 @@
       }, 3200);
     }
 
-    // ========================
-    // Contact form submit
-    // ========================
+    // Form submit
     async function handleSubmit(event) {
       event.preventDefault();
       const form = document.getElementById("demoForm");
@@ -2001,15 +2008,11 @@
 
         const res = await fetch(API_URL, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
 
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
+        if (!res.ok) throw new Error("Network response was not ok");
 
         const data = await res.json().catch(() => ({}));
         if (data && data.success) {
@@ -2027,11 +2030,8 @@
       }
     }
 
-    // ========================
     // Fade-in on scroll
-    // ========================
     const fadeSections = document.querySelectorAll(".fade-section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -2043,14 +2043,11 @@
       },
       { threshold: 0.14 }
     );
-
     fadeSections.forEach((section) => observer.observe(section));
 
     // Footer year
     const yearEl = document.getElementById("year");
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
