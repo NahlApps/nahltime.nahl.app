@@ -388,7 +388,7 @@
     /* Hero visual */
     .hero-visual {
       position: relative;
-      max-width: 440px;
+      max-width: 480px;
       margin-inline: auto;
     }
 
@@ -398,10 +398,16 @@
       position: relative;
       box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
       background: linear-gradient(135deg, #020617, #0f172a);
-      height: 260px;
+      height: 320px; /* bigger on mobile */
       display: flex;
       align-items: flex-end;
       justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .hero-photo {
+        height: 380px; /* bigger on desktop */
+      }
     }
 
     .hero-photo::before {
@@ -617,8 +623,14 @@
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 0.65rem;
-      height: 120px;
+      height: 170px; /* bigger than before */
       background: #e5e7eb;
+    }
+
+    @media (min-width: 900px) {
+      .card-image {
+        height: 200px; /* bigger on desktop */
+      }
     }
 
     .card-image img {
@@ -653,7 +665,10 @@
     }
 
     @media (min-width: 900px) {
-      .image-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .image-strip {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem; /* slightly bigger gap to breathe */
+      }
     }
 
     .image-card {
@@ -661,7 +676,7 @@
       overflow: hidden;
       position: relative;
       background: #e5e7eb;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 3 / 2; /* taller images */
       box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
     }
 
@@ -776,8 +791,8 @@
     }
 
     .testimonial-avatar {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       border-radius: 999px;
       background: linear-gradient(135deg, #22c55e, #a3e635);
       overflow: hidden;
