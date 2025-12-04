@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>NahlTime — نظام حجوزات غسيل السيارات</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    :root {
+      --bg-page: #f5f7f8;
+      --bg-card: #ffffff;
+      --bg-soft: #eef1f4;
+      --primary: #f4ce14;
+      --primary-soft: #fef3c7;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: rgba(15, 23, 42, 0.08);
+      --radius-lg: 16px;
+      --radius-xl: 20px;
+      --shadow-soft: 0 18px 40px rgba(15,23,42,0.08);
+      --shadow-subtle: 0 4px 14px rgba(15,23,42,0.05);
+      --transition-fast: 0.2s ease-out;
+      --container-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Cairo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(244,206,20,0.18), transparent 55%),
+                  var(--bg-page);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout helpers */
+    .container {
+      width: 100%;
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding: 5.5rem 0;
+      }
+    }
+
+    /* Top nav */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(245,247,248,0.92), rgba(245,247,248,0.85));
+      border-bottom: 1px solid rgba(148,163,184,0.18);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 20%, #fff7cc, #f4ce14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #111827;
+      box-shadow: 0 10px 25px rgba(250, 204, 21, 0.45);
+    }
+
+    .brand-text-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 999px;
+    }
+
+    .nav-cta-group {
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.55rem 1.35rem;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+                  background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border-color: #facc15;
+      color: #111827;
+      box-shadow: 0 12px 24px rgba(250, 204, 21, 0.45);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(250, 204, 21, 0.5);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.8);
+      border-color: rgba(148,163,184,0.7);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background: #ffffff;
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: transparent;
+      color: var(--text-muted);
+      padding-inline: 0.25rem;
+    }
+    .btn-ghost:hover {
+      color: var(--text-main);
+    }
+
+    .nav-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(255,255,255,0.9);
+      cursor: pointer;
+    }
+
+    .nav-toggle i {
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem 1.25rem;
+      background: rgba(245,247,248,0.98);
+      border-bottom: 1px solid rgba(148,163,184,0.18);
+    }
+
+    .mobile-menu a {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      padding: 0.3rem 0;
+    }
+
+    .mobile-menu .btn {
+      width: 100%;
+    }
+
+    @media (min-width: 900px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta-group {
+        display: flex;
+      }
+      .nav-toggle, .mobile-menu {
+        display: none;
+      }
+      .navbar-inner {
+        height: 72px;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        gap: 3.5rem;
+      }
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.08);
+    }
+
+    .hero-pill span.highlight {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: #92400e;
+      font-weight: 600;
+      font-size: 0.74rem;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      line-height: 1.35;
+      font-weight: 700;
+      margin: 0 0 0.6rem;
+      letter-spacing: 0.01em;
+    }
+    @media (min-width: 900px) {
+      .hero-title {
+        font-size: 2.3rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.5rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-bullet {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .hero-bullet i {
+      color: #22c55e;
+      font-size: 0.95rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      margin-top: 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      box-shadow: 0 8px 23px rgba(15,23,42,0.06);
+      max-width: 22rem;
+    }
+
+    .hero-proof-avatars {
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-proof-avatars span {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 2px solid #ffffff;
+      background: linear-gradient(135deg, #f97316, #facc15);
+      display: inline-block;
+      margin-left: -8px;
+    }
+
+    .hero-proof-avatars span:first-child {
+      margin-left: 0;
+    }
+
+    .hero-proof-avatars span:nth-child(2) {
+      background: linear-gradient(135deg, #22c55e, #a3e635);
+    }
+
+    .hero-proof-avatars span:nth-child(3) {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      max-width: 420px;
+      margin-inline: auto;
+    }
+
+    .hero-card {
+      background: rgba(15,23,42,0.98);
+      color: #e5e7eb;
+      border-radius: 26px;
+      padding: 1.2rem 1rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(248,250,252,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(248,250,252,0.06);
+      font-size: 0.72rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(250,204,21,0.14);
+      color: #facc15;
+      font-size: 0.72rem;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-card-body {
+      margin-top: 0.4rem;
+    }
+
+    .hero-calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.3rem;
+      font-size: 0.65rem;
+      margin-top: 0.7rem;
+    }
+
+    .hero-calendar-day {
+      text-align: center;
+      padding: 0.25rem 0;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.75);
+      color: #9ca3af;
+    }
+
+    .hero-calendar-slot {
+      text-align: center;
+      padding: 0.28rem 0;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.85);
+      color: #f9fafb;
+      border: 1px solid rgba(148,163,184,0.4);
+    }
+
+    .hero-calendar-slot.busy {
+      background: rgba(248, 250, 252, 0.05);
+      border-color: rgba(248, 250, 252, 0.2);
+    }
+    .hero-calendar-slot.highlight {
+      background: #facc15;
+      color: #111827;
+      box-shadow: 0 0 0 2px rgba(248,250,252,0.18);
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      left: -12px;
+      bottom: -18px;
+      background: #ffffff;
+      color: #111827;
+      border-radius: 18px;
+      padding: 0.6rem 0.9rem;
+      box-shadow: 0 14px 32px rgba(15,23,42,0.25);
+      font-size: 0.78rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      width: 200px;
+      transform: translateY(0);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-floating-card strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-floating-card strong span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-floating-badge {
+      position: absolute;
+      right: -8px;
+      top: -14px;
+      background: #f4ce14;
+      color: #111827;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      box-shadow: 0 10px 25px rgba(250,204,21,0.5);
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    /* Social proof strip */
+    .logo-strip {
+      padding: 2.25rem 0 0.75rem;
+    }
+
+    .logo-strip-inner {
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(148,163,184,0.3);
+      padding: 0.7rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo-pill {
+      min-width: 80px;
+      border-radius: 999px;
+      padding: 0.3rem 0.7rem;
+      background: var(--bg-soft);
+      font-size: 0.75rem;
+      color: #4b5563;
+    }
+
+    /* Section headings */
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    /* Cards grid */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.2rem 1.1rem;
+      box-shadow: 0 14px 34px rgba(15,23,42,0.04);
+      border: 1px solid var(--border-subtle);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.09);
+      border-color: rgba(250,204,21,0.6);
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.7rem;
+    }
+
+    .card-icon i {
+      color: #92400e;
+      font-size: 1rem;
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .card-text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Timeline (How it works) */
+    .timeline {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+      .timeline {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .timeline-step {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 26px rgba(15,23,42,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: 0.65rem;
+      left: 0.75rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .timeline-badge {
+      display: inline-flex;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      font-size: 0.76rem;
+      margin-bottom: 0.5rem;
+      color: #92400e;
+    }
+
+    .timeline-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Use cases tabs (simplified as cards) */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(255,255,255,0.9);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      cursor: default;
+    }
+
+    .pill-primary {
+      border-color: #facc15;
+      background: var(--primary-soft);
+      color: #92400e;
+    }
+
+    /* Screenshots area (placeholder cards) */
+    .screens-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 900px) {
+      .screens-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      }
+    }
+
+    .screen-box {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: #e5e7eb;
+      padding: 1.1rem 1rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148,163,184,0.4);
+      min-height: 220px;
+      font-size: 0.82rem;
+    }
+
+    .screen-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.7rem;
+    }
+
+    .screen-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+
+    .testimonial-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .testimonial-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22c55e, #a3e635);
+    }
+
+    .testimonial-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Pricing cards */
+    .pricing-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .pricing-card {
+      position: relative;
+      padding-top: 1.7rem;
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: 0.5rem;
+      left: 1rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      font-size: 0.74rem;
+      color: #92400e;
+    }
+
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.18rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-price-main {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .pricing-price-period {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .pricing-features {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 0.9rem;
+    }
+
+    .pricing-features li {
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .pricing-features i {
+      color: #22c55e;
+      font-size: 0.85rem;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .faq-question {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-answer {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Contact / demo form */
+    .contact-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      }
+    }
+
+    .contact-box {
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      padding: 1.3rem 1.2rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .contact-form-group {
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-main);
+    }
+
+    .contact-label span {
+      color: #ef4444;
+    }
+
+    .contact-input,
+    .contact-select,
+    .contact-textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(148,163,184,0.8);
+      padding: 0.55rem 0.6rem;
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      background: rgba(255,255,255,0.98);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .contact-input:focus,
+    .contact-select:focus,
+    .contact-textarea:focus {
+      border-color: #facc15;
+      box-shadow: 0 0 0 1px rgba(250,204,21,0.5);
+      background: #ffffff;
+    }
+
+    .contact-textarea {
+      resize: vertical;
+      min-height: 90px;
+      max-height: 200px;
+    }
+
+    .contact-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.18rem;
+    }
+
+    .contact-footer-note {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .contact-footer-note i {
+      color: #22c55e;
+      font-size: 0.85rem;
+    }
+
+    .contact-aside {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .contact-aside-highlight {
+      background: var(--primary-soft);
+      border-radius: 14px;
+      padding: 0.75rem 0.85rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.84rem;
+      color: #92400e;
+    }
+
+    .contact-aside-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 1rem;
+      font-size: 0.84rem;
+    }
+
+    .contact-aside-list li {
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .contact-aside-list i {
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .contact-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.86rem;
+      margin-top: 0.3rem;
+    }
+
+    .contact-whatsapp i {
+      color: #22c55e;
+    }
+
+    /* Final CTA banner */
+    .final-cta {
+      margin: 3rem 0 2rem;
+    }
+
+    .final-cta-box {
+      border-radius: 24px;
+      padding: 1.8rem 1.4rem;
+      background: radial-gradient(circle at 10% 10%, #fff7cc, #f4ce14);
+      box-shadow: 0 18px 40px rgba(250,204,21,0.4);
+      color: #111827;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 900px) {
+      .final-cta-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 2.3rem;
+      }
+    }
+
+    .final-cta-text-main {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .final-cta-text-sub {
+      font-size: 0.9rem;
+    }
+
+    .final-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .btn-dark {
+      background: #111827;
+      color: #f9fafb;
+      border-color: #020617;
+      box-shadow: 0 14px 30px rgba(15,23,42,0.4);
+    }
+    .btn-dark:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.55);
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.8rem 0 2.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(148,163,184,0.35);
+      margin-top: auto;
+      background: rgba(255,255,255,0.9);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .footer-social a {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 60;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      background: #111827;
+      color: #f9fafb;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(4px);
+    }
+
+    .toast-success {
+      background: #16a34a;
+    }
+    .toast-error {
+      background: #b91c1c;
+    }
+
+    /* Fade-in on scroll */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <span id="toastIcon"><i class="fa-regular fa-circle-check"></i></span>
+    <span id="toastMessage">تم الإرسال بنجاح</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <div class="brand">
+          <div class="brand-logo">Nt</div>
+          <div>
+            <div class="brand-text-title">NahlTime</div>
+            <div class="brand-text-sub">نظام حجوزات مغاسل السيارات</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#hero">الرئيسية</a>
+          <a href="#features">المميزات</a>
+          <a href="#use-cases">لمن نحل؟</a>
+          <a href="#pricing">الأسعار</a>
+          <a href="#contact">تجربة مجانية</a>
+        </nav>
+        <div class="nav-cta-group">
+          <button class="btn btn-outline" onclick="scrollToSection('contact')">
+            <i class="fa-brands fa-whatsapp"></i>
+            تواصل واتساب
+          </button>
+          <button class="btn btn-primary" onclick="scrollToSection('contact')">
+            احجز تجربة مجانية
+          </button>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="فتح القائمة">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" onclick="toggleMobileMenu()">الرئيسية</a>
+        <a href="#features" onclick="toggleMobileMenu()">المميزات</a>
+        <a href="#use-cases" onclick="toggleMobileMenu()">لمن نحل؟</a>
+        <a href="#pricing" onclick="toggleMobileMenu()">الأسعار</a>
+        <a href="#faq" onclick="toggleMobileMenu()">الأسئلة الشائعة</a>
+        <button class="btn btn-primary" onclick="scrollToSection('contact'); toggleMobileMenu();">
+          احجز تجربة مجانية
+        </button>
+        <button class="btn btn-outline" onclick="scrollToSection('contact'); toggleMobileMenu();">
+          <i class="fa-brands fa-whatsapp"></i>
+          تواصل واتساب
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
+    <section id="hero" class="hero fade-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-pill">
+              <span class="highlight">جديد</span>
+              <span>حل مصمم خصيصًا لمغاسل السيارات في السعودية والخليج</span>
+            </div>
+            <h1 class="hero-title">
+              نظام حجوزات لغسيل السيارات <br> يخلي مواعيدك منظمة بدون وجع رأس
+            </h1>
+            <p class="hero-subtitle">
+              NahlTime يرتب مواعيد غسيل السيارات، فريق العمل، وتنبيهات الواتساب في شاشة واحدة
+              بسيطة. أقل فوضى، تنظيم أكثر، وتجربة مريحة لك ولعملائك 🚗✨
+            </p>
+            <div class="hero-bullets">
+              <div class="hero-bullet">
+                <i class="fa-solid fa-check"></i>
+                <span>يدعم اللغة العربية بالكامل</span>
+              </div>
+              <div class="hero-bullet">
+                <i class="fa-solid fa-check"></i>
+                <span>يعمل على الجوال والكمبيوتر بدون تركيب</span>
+              </div>
+            </div>
+            <div class="hero-cta-row">
+              <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                احجز تجربة مجانية الآن
+                <i class="fa-solid fa-arrow-left-long"></i>
+              </button>
+              <button class="btn btn-outline" onclick="scrollToSection('screens')">
+                <i class="fa-regular fa-circle-play"></i>
+                شاهد تجربة سريعة
+              </button>
+            </div>
+            <div class="hero-note">
+              بدون التزام بعقد – تجربة عملية مع فريقك أولاً.
+            </div>
+            <div class="hero-proof">
+              <div class="hero-proof-avatars">
+                <span></span><span></span><span></span>
+              </div>
+              <div>
+                مستخدم من فرق غسيل في السعودية وقطر مثل
+                <strong>AutoSpa</strong> و <strong>Carfection</strong>.
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-card">
+              <div class="hero-card-header">
+                <div class="hero-tag">
+                  <i class="fa-regular fa-calendar-check"></i>
+                  جدول حجوزات اليوم
+                </div>
+                <div class="hero-badge">
+                  <i class="fa-solid fa-bolt"></i>
+                  +32٪ حجوزات منظمة
+                </div>
+              </div>
+              <div class="hero-card-body">
+                <div style="font-size:0.78rem; color:#9ca3af; margin-bottom:0.3rem;">
+                  الخميس 14 رمضان · فرع حي الندى
+                </div>
+                <div class="hero-calendar">
+                  <div class="hero-calendar-day">9ص</div>
+                  <div class="hero-calendar-day">10ص</div>
+                  <div class="hero-calendar-day">11ص</div>
+                  <div class="hero-calendar-day">12م</div>
+                  <div class="hero-calendar-day">1م</div>
+                  <div class="hero-calendar-day">2م</div>
+                  <div class="hero-calendar-day">3م</div>
+
+                  <div class="hero-calendar-slot">2 سيارات</div>
+                  <div class="hero-calendar-slot busy">4 سيارات</div>
+                  <div class="hero-calendar-slot highlight">مكتمل</div>
+                  <div class="hero-calendar-slot">1 سيارة</div>
+                  <div class="hero-calendar-slot">3 سيارات</div>
+                  <div class="hero-calendar-slot busy">4 سيارات</div>
+                  <div class="hero-calendar-slot">1 سيارة</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-floating-card">
+              <div><strong><span></span>الحجز القادم</strong></div>
+              <div>10:15 ص · غسيل كامل</div>
+              <div style="font-size:0.75rem; color:#6b7280;">
+                تم إرسال تأكيد واتساب للعميل ✉️
+              </div>
+            </div>
+            <div class="hero-floating-badge">
+              حجوزات اليوم: 27 🚗
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logos strip -->
+    <section class="logo-strip fade-section">
+      <div class="container">
+        <div class="logo-strip-inner">
+          <span>موثوق من شركاء في السعودية وقطر:</span>
+          <div class="logos">
+            <span class="logo-pill">AutoSpa</span>
+            <span class="logo-pill">Carfection</span>
+            <span class="logo-pill">Simplicity Coffee</span>
+            <span class="logo-pill">Wash Steps</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain points -->
+    <section id="pain" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">قبل NahlTime</div>
+          <h2 class="section-title">إدارة حجوزات غسيل السيارات متعبة بدون نظام</h2>
+          <p class="section-subtitle">
+            مكالمات لا تنتهي، رسائل واتساب متفرقة، أوراق وجداول… وفي النهاية تضيع بعض المواعيد
+            أو تتداخل السيارات في نفس الوقت.
+          </p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div class="card-title">مكالمات وواتساب ما تخلص</div>
+            <div class="card-text">
+              العملاء يحجزون من كل مكان، وموظف الاستقبال يضيع بين المحادثات والجداول اليدوية.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div class="card-title">تداخل في المواعيد</div>
+            <div class="card-text">
+              سيارات كثيرة في نفس الساعة، وأوقات ثانية فاضية… والنتيجة ضغط على الفريق وتجربة سيئة للعميل.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="card-title">ما في رؤية واضحة</div>
+            <div class="card-text">
+              صعب تعرف متى أوقات الذروة، أو أي خدمة تدخل دخل أكثر، أو كيف أداء كل فرع.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <div class="card-title">متابعة الفريق مجهدة</div>
+            <div class="card-text">
+              لا يوجد مكان واحد يوضح من اشتغل كم سيارة اليوم، ومن يحتاج دعم أو توزيع أفضل للحجوزات.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">المميزات الأساسية</div>
+          <h2 class="section-title">كل ما تحتاجه لترتيب حجوزات غسيل السيارات</h2>
+          <p class="section-subtitle">
+            NahlTime ليس نظامًا عامًا؛ صُمّم من البداية ليتناسب مع طريقة عمل مغاسل السيارات
+            والمقاهي اللي تقدم خدمة الغسيل.
+          </p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-regular fa-calendar-days"></i>
+            </div>
+            <div class="card-title">تقويم حجوزات واضح</div>
+            <div class="card-text">
+              عرض يومي وأسبوعي يوضح عدد السيارات في كل ساعة، مع حالة كل حجز (قادم، جاري، مكتمل، ملغي).
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div class="card-title">تنبيهات واتساب تلقائية</div>
+            <div class="card-text">
+              تأكيد موعد، تذكير قبل الحضور، ورسالة شكر بعد الغسيل… تُرسل للعميل تلقائيًا بدون جهد يدوي.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-users-line"></i>
+            </div>
+            <div class="card-title">إدارة الفريق والمسارات</div>
+            <div class="card-text">
+              تابع كم سيارة خدم كل موظف أو مسار غسيل، ووزّع الأحمال بسهولة حسب أوقات الذروة والهدوء.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-chart-column"></i>
+            </div>
+            <div class="card-title">تقارير بسيطة لصاحب القرار</div>
+            <div class="card-text">
+              اعرف أفضل الأيام، أكثر الخدمات طلبًا، ومتوسط عدد السيارات لكل فرع… في تقارير مفهومة.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="card-title">يدعم عدة فروع</div>
+            <div class="card-text">
+              لو عندك أكثر من موقع، تقدر تتابعها كلها من لوحة تحكم واحدة مع صلاحيات مختلفة للفريق.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="card-title">تشغيل سريع وتدريب بسيط</div>
+            <div class="card-text">
+              نضبط الإعدادات لأول مرة معك، ونشرح لفريقك الطريقة… بدون تعقيدات تقنية أو تركيب أجهزة.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">خطوات العمل</div>
+          <h2 class="section-title">كيف يبدأ NahlTime عندك في المغسلة؟</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-step" data-step="١">
+            <div class="timeline-badge">مكالمة تعريفية</div>
+            <div class="timeline-title">نفهم طريقة شغلك الحالية</div>
+            <div class="timeline-text">
+              نسمع عن عدد الفروع، الخدمات، وعدد المسارات أو الموظفين؛ ونفهم حجم العمل وأوقات الذروة.
+            </div>
+          </div>
+          <div class="timeline-step" data-step="٢">
+            <div class="timeline-badge">إعداد وتجربة</div>
+            <div class="timeline-title">نضبط النظام ونبدأ تجربة حقيقية</div>
+            <div class="timeline-text">
+              نضيف خدماتك وأسعارك، نرتب جدول المواعيد، ونربط الواتساب. بعدها نبدأ بأيام تجربة على شغلك الحقيقي.
+            </div>
+          </div>
+          <div class="timeline-step" data-step="٣">
+            <div class="timeline-badge">تشغيل مستمر</div>
+            <div class="timeline-title">تتابع كل شيء من شاشة واحدة</div>
+            <div class="timeline-text">
+              حجوزات اليوم، حالة السيارات، أداء الفريق، والتقارير… كلها في مكان واحد، مع دعم مستمر من فريق Nahl.
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1.4rem;">
+          <button class="btn btn-outline" onclick="scrollToSection('contact')">
+            احجز مكالمة تعريفية مجانية
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Use cases -->
+    <section id="use-cases" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">لمن نحل؟</div>
+          <h2 class="section-title">NahlTime يناسب أكثر من نموذج عمل</h2>
+          <p class="section-subtitle">
+            أيًا كان شكل خدمة الغسيل عندك، الهدف واحد: تنظيم المواعيد، راحة الفريق، وتجربة أفضل للعميل.
+          </p>
+        </div>
+        <div class="pill-row">
+          <span class="pill pill-primary">ورش غسيل مستقلة</span>
+          <span class="pill">مقاهي تقدم خدمة غسيل أثناء الجلسة</span>
+          <span class="pill">شركات تأجير أو أساطيل سيارات</span>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">ورش غسيل مستقلة</div>
+            <div class="card-text">
+              مثالي للمغاسل اللي تستقبل عملاء على مدار اليوم. يساعدك تشوف الضغط على كل ساعة،
+              وتمنع تكدس السيارات في المدخل أو انتظار طويل للعميل.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">مقاهي تقدم غسيل أثناء الجلسة</div>
+            <div class="card-text">
+              يربط وقت جلوس العميل بوقت غسيل سيارته. تعرف متى تنتهي السيارات المتوقفة عند الكوفي،
+              وتمنع الازدحام عند باب المحل.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">شركات تأجير وأساطيل سيارات</div>
+            <div class="card-text">
+              جدولة غسيل سيارات الأسطول على مدار الأسبوع، مع متابعة عدد السيارات المغسولة يوميًا
+              لكل موقع أو فريق.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">نشاطك الخاص؟</div>
+            <div class="card-text">
+              حتى لو كان تطبيقك مختلف قليلًا عن الأمثلة، نقدر نكيّف NahlTime حسب طبيعة شغلك.
+              تواصل معنا ونعطيك رأينا بصراحة.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screens / Product tour -->
+    <section id="screens" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">نظرة داخل النظام</div>
+          <h2 class="section-title">شوف كيف يبان يومك في NahlTime</h2>
+        </div>
+        <div class="screens-grid">
+          <div class="screen-box">
+            <div class="screen-box-header">
+              <div style="display:flex;align-items:center;gap:0.4rem;">
+                <div style="display:flex;gap:0.25rem;">
+                  <span style="width:8px;height:8px;border-radius:999px;background:#f97316;"></span>
+                  <span style="width:8px;height:8px;border-radius:999px;background:#facc15;"></span>
+                  <span style="width:8px;height:8px;border-radius:999px;background:#22c55e;"></span>
+                </div>
+                <span style="font-size:0.8rem;color:#9ca3af;">لوحة تحكم اليوم</span>
+              </div>
+              <div class="screen-status-dot"></div>
+            </div>
+            <p style="margin:0 0 0.7rem;">
+              عرض اليوم يعطيك لمحة سريعة عن عدد الحجوزات في كل ساعة، وحالة كل سيارة.
+            </p>
+            <p style="margin:0;">
+              <strong>أمثلة:</strong>  
+              ٩–١١ ص: ضغط عالي (أغلب الأوقات ممتلئة)  
+              ٣–٥ م: وقت مناسب للعروض أو الخصومات  
+              تقدر تعدّل السعة لكل ساعة بسهولة وتوزع العمل على الفريق.
+            </p>
+          </div>
+          <div class="grid" style="gap:1rem;">
+            <div class="card" style="box-shadow:0 12px 28px rgba(15,23,42,0.08);">
+              <div class="card-title">شاشة ضبط الخدمات والأسعار</div>
+              <div class="card-text">
+                أضف خدمات الغسيل، الأسعار، ومدة كل خدمة… ليحسب النظام تلقائيًا عدد السيارات المتاحة في كل ساعة.
+              </div>
+            </div>
+            <div class="card" style="box-shadow:0 12px 28px rgba(15,23,42,0.08);">
+              <div class="card-title">تقارير مبسّطة لصاحب النشاط</div>
+              <div class="card-text">
+                تابع عدد الحجوزات لكل يوم، متوسط عدد السيارات، وأفضل الخدمات أداءً؛
+                كل هذا بدون تعقيد أو جداول مخيفة.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">آراء الشركاء</div>
+          <h2 class="section-title">وش يقولون عن NahlTime؟</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card testimonial">
+            <div class="testimonial-quote">
+              "بعد استخدام NahlTime صار أسهل نتابع مواعيد الغسيل، وقلّت الأخطاء في الحجز بشكل
+              كبير، وحتى الفريق صار يعرف جدول اليوم من بدري."
+            </div>
+            <div class="testimonial-meta">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">فريق Simplicity Coffee</div>
+                <div class="testimonial-role">خدمة غسيل سيارات أثناء الجلسة · الرياض</div>
+              </div>
+            </div>
+          </div>
+          <div class="card testimonial">
+            <div class="testimonial-quote">
+              "النظام بسيط جدًا، ما حسّينا أنه معقّد علينا. كأنك تشوف جدول اليوم في ورقة واحدة،
+              بس كلها محدثة تلقائيًا."
+            </div>
+            <div class="testimonial-meta">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">مالك مغسلة مستقلة</div>
+                <div class="testimonial-role">ورشة غسيل سيارات · جدة</div>
+              </div>
+            </div>
+          </div>
+          <div class="card testimonial">
+            <div class="testimonial-quote">
+              "أهم شيء بالنسبة لنا كان متابعة عدد السيارات لكل موظف، وهذا اللي وفره لنا NahlTime
+              بدون تقارير معقدة."
+            </div>
+            <div class="testimonial-meta">
+              <div class="testimonial-avatar"></div>
+              <div>
+                <div class="testimonial-name">شركة إدارة أسطول</div>
+                <div class="testimonial-role">إدارة سيارات الشركة · الدمام</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">الأسعار</div>
+          <h2 class="section-title">أسعار بسيطة وواضحة</h2>
+          <p class="section-subtitle">
+            نبدأ معك بباقة تناسب حجم نشاطك، وتقدر تطور الباقة لاحقًا بسهولة. لا عقود إلزامية
+            طويلة ولا التزامات مخفية.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <div class="card pricing-card">
+            <div class="pricing-badge">الأكثر شيوعًا</div>
+            <div class="card-title">باقة فرع واحد</div>
+            <div class="pricing-price">
+              <span class="pricing-price-main">299</span>
+              <span class="pricing-price-period">ريال / شهر</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i>حتى عدد محدد من السيارات في اليوم (حسب اتفاقنا)</li>
+              <li><i class="fa-solid fa-check"></i>تقويم حجوزات كامل</li>
+              <li><i class="fa-solid fa-check"></i>تنبيهات واتساب أساسية</li>
+              <li><i class="fa-solid fa-check"></i>تدريب أولي للفريق</li>
+            </ul>
+            <button class="btn btn-primary" onclick="scrollToSection('contact')">
+              ابدأ بهذه الباقة
+            </button>
+          </div>
+          <div class="card pricing-card">
+            <div class="card-title">باقة عدة فروع</div>
+            <div class="pricing-price">
+              <span class="pricing-price-main">مخصصة</span>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i>لوحة تحكم موحدة لجميع الفروع</li>
+              <li><i class="fa-solid fa-check"></i>صلاحيات مختلفة للمديرين والمشرفين</li>
+              <li><i class="fa-solid fa-check"></i>تنبيهات واتساب متقدمة وتقارير إضافية</li>
+              <li><i class="fa-solid fa-check"></i>تدريب ودعم مخصص</li>
+            </ul>
+            <button class="btn btn-outline" onclick="scrollToSection('contact')">
+              اطلب عرض سعر حسب الفروع
+            </button>
+          </div>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-top:1rem;">
+          بدون عقد إلزامي – تقدر توقف الاشتراك في أي وقت. هدفنا تجربتك الناجحة واستمرارك برضاك.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">أسئلة متكررة</div>
+          <h2 class="section-title">إجابات سريعة قبل ما تتواصل معنا</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">هل أقدر ألغيه في أي وقت؟</div>
+            <div class="faq-answer">
+              نعم، تقدر توقف الاشتراك في أي وقت بدون التزام بعقد طويل الأمد. ما نحب الإلزام؛ نحب رضاك عن الخدمة.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل يعمل على الجوال؟</div>
+            <div class="faq-answer">
+              نعم، NahlTime يعمل من المتصفح على الجوال أو التابلت أو اللابتوب؛ ما يحتاج تنزيل تطبيق أو تركيب أجهزة.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل فيه تجربة مجانية؟</div>
+            <div class="faq-answer">
+              نعم، نوفّر لك تجربة عملية حقيقية على شغلك قبل ما تقرر الاشتراك. نساعدك في الإعداد من أول يوم.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">هل تدعمون اللغة العربية بالكامل؟</div>
+            <div class="faq-answer">
+              نعم، الواجهة والرسائل مصممة للمستخدم العربي والخليجي، مع إمكانية إضافة نسخة إنجليزية لاحقًا لو احتجت.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Demo -->
+    <section id="contact" class="fade-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">تواصل معنا</div>
+          <h2 class="section-title">احجز تجربة مجانية لـ NahlTime</h2>
+          <p class="section-subtitle">
+            عبّ البيانات البسيطة هذه، ونتواصل معك خلال 24 ساعة لنعطيك تجربة حية للنظام على نشاطك.
+            نفضّل الواتساب للتواصل السريع 😉
+          </p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <form id="demoForm" onsubmit="handleSubmit(event)">
+              <div class="contact-form-group">
+                <label class="contact-label">اسمك <span>*</span></label>
+                <input type="text" id="name" name="name" class="contact-input" required />
+              </div>
+              <div class="contact-form-group">
+                <label class="contact-label">رقم الجوال (مع مفتاح الدولة) <span>*</span></label>
+                <input type="tel" id="phone" name="phone" class="contact-input" required />
+                <div class="contact-hint">
+                  مثال: +9665XXXXXXXX — سنستخدمه للتواصل في الواتساب أو الاتصال.
+                </div>
+              </div>
+              <div class="contact-form-group">
+                <label class="contact-label">نوع النشاط</label>
+                <select id="businessType" name="businessType" class="contact-select">
+                  <option value="">اختر نوع النشاط</option>
+                  <option value="workshop">ورشة / مغسلة سيارات مستقلة</option>
+                  <option value="cafe">كوفي يقدم خدمة غسيل أثناء الجلسة</option>
+                  <option value="fleet">شركة تأجير / أسطول سيارات</option>
+                  <option value="other">نشاط آخر (اذكره في الملاحظة)</option>
+                </select>
+              </div>
+              <div class="contact-form-group">
+                <label class="contact-label">عدد الفروع أو عدد المسارات التقريبية</label>
+                <select id="size" name="size" class="contact-select">
+                  <option value="">اختر تقديرًا تقريبيًا</option>
+                  <option value="small">فرع واحد / حتى 2 مسار</option>
+                  <option value="medium">2–3 فروع أو حتى 5 مسارات</option>
+                  <option value="large">أكثر من 3 فروع أو أكثر من 5 مسارات</option>
+                </select>
+              </div>
+              <div class="contact-form-group">
+                <label class="contact-label">ملحوظة أو شيء تحب نعرفه قبل المكالمة</label>
+                <textarea id="message" name="message" class="contact-textarea" placeholder="مثال: عندنا ضغط عالي في فترات معينة… نبي نرتب الحجوزات بدون ما تتكدس السيارات."></textarea>
+              </div>
+              <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;margin-top:0.4rem;">
+                إرسال الطلب
+              </button>
+              <div class="contact-footer-note">
+                <i class="fa-solid fa-shield-heart"></i>
+                <span>لن نشارك بياناتك مع أي طرف آخر، ونستخدمها فقط لترتيب التواصل معك.</span>
+              </div>
+            </form>
+          </div>
+          <div class="contact-aside">
+            <div class="contact-aside-highlight">
+              نؤمن أن أفضل طريقة لفهم NahlTime هي تجربته على شغلك الحقيقي، وليس عرضًا نظريًا فقط.
+            </div>
+            <p>
+              خلال مكالمة أو جلسة التجربة:
+            </p>
+            <ul class="contact-aside-list">
+              <li><i class="fa-regular fa-circle-check"></i>نفهم طريقة عملك الحالية والمشاكل اللي تواجهها.</li>
+              <li><i class="fa-regular fa-circle-check"></i>نريك كيف يترجم يومك الحالي في NahlTime.</li>
+              <li><i class="fa-regular fa-circle-check"></i>نقترح إعدادات بسيطة تناسب حجم نشاطك.</li>
+            </ul>
+            <p>
+              تقدر كذلك تتواصل مباشرة معنا في الواتساب لو تحب تبدأ محادثة سريعة:
+            </p>
+            <a href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener" class="contact-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>تواصل مع فريق Nahl في واتساب</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA banner -->
+    <section class="final-cta fade-section">
+      <div class="container">
+        <div class="final-cta-box">
+          <div>
+            <div class="final-cta-text-main">جاهز ترتّب حجوزات غسيل السيارات عندك؟</div>
+            <div class="final-cta-text-sub">
+              جرّب NahlTime مع فريقك، وشوف أثر التنظيم على يومك من أول أسبوع. بدون التزام، وبدعم كامل من فريق نحل.
+            </div>
+          </div>
+          <div class="final-cta-actions">
+            <button class="btn btn-dark" onclick="scrollToSection('contact')">
+              احجز تجربة مجانية
+            </button>
+            <a class="btn btn-outline" href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i>
+              تواصل واتساب الآن
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <strong>NahlTime</strong> — نظام حجوزات بسيط وذكي لمغاسل السيارات في السعودية والخليج.
+        </div>
+        <div class="footer-links">
+          <a href="#features">المميزات</a>
+          <a href="#pricing">الأسعار</a>
+          <a href="#faq">الأسئلة الشائعة</a>
+          <a href="#contact">تواصل</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>
+          © <span id="year"></span> NahlTime · Nahl.app — جميع الحقوق محفوظة.
+        </div>
+        <div class="footer-social">
+          <a href="https://wa.me/qr/L6IW6WUAONJLF1" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <!-- Add X / Instagram if needed -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========================
+    // CONFIG
+    // ========================
+    // IMPORTANT:
+    // Replace this with your proxy endpoint that forwards to Apps Script Web App.
+    // Example: /api/nahltime-lead on Vercel/GitHub proxy.
+    const API_URL = "https://your-proxy-domain.com/api/nahltime-lead";
+
+    // ========================
+    // Navbar (mobile menu)
+    // ========================
+    const navToggle = document.getElementById("navToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    function toggleMobileMenu() {
+      if (!mobileMenu) return;
+      const isOpen = mobileMenu.style.display === "flex";
+      mobileMenu.style.display = isOpen ? "none" : "flex";
+      navToggle.innerHTML = isOpen ? '<i class="fa-solid fa-bars"></i>' : '<i class="fa-solid fa-xmark"></i>';
+    }
+
+    if (navToggle) {
+      navToggle.addEventListener("click", toggleMobileMenu);
+    }
+
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    // ========================
+    // Toast
+    // ========================
+    const toastEl = document.getElementById("toast");
+    const toastMsgEl = document.getElementById("toastMessage");
+    const toastIconEl = document.getElementById("toastIcon");
+
+    function showToast(message, type = "success") {
+      if (!toastEl || !toastMsgEl || !toastIconEl) return;
+      toastMsgEl.textContent = message;
+      toastEl.classList.remove("toast-success", "toast-error");
+      if (type === "success") {
+        toastEl.classList.add("toast-success");
+        toastIconEl.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+      } else {
+        toastEl.classList.add("toast-error");
+        toastIconEl.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+      }
+      toastEl.classList.add("visible");
+      setTimeout(() => {
+        toastEl.classList.remove("visible");
+      }, 3200);
+    }
+
+    // ========================
+    // Contact form submit
+    // ========================
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const form = document.getElementById("demoForm");
+      const submitBtn = document.getElementById("submitBtn");
+      if (!form || !submitBtn) return;
+
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      const businessType = form.businessType.value || "";
+      const size = form.size.value || "";
+      const message = form.message.value.trim();
+
+      if (!name || !phone) {
+        showToast("الرجاء تعبئة الاسم ورقم الجوال.", "error");
+        return;
+      }
+
+      // Disable button & show loading state
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "جارٍ إرسال الطلب...";
+
+      try {
+        const payload = {
+          name,
+          phone,
+          businessType,
+          size,
+          message,
+          source: "NahlTime Marketing Site"
+        };
+
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await res.json().catch(() => ({}));
+        if (data && data.success) {
+          showToast("شكرًا! استلمنا طلبك وسنتواصل معك خلال 24 ساعة.", "success");
+          form.reset();
+        } else {
+          showToast("تعذر إرسال الطلب حاليًا. حاول مرة أخرى لاحقًا.", "error");
+        }
+      } catch (err) {
+        console.error("Submit error", err);
+        showToast("حدث خطأ في الاتصال. تأكد من اتصالك بالإنترنت أو حاول لاحقًا.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    }
+
+    // ========================
+    // Fade-in on scroll
+    // ========================
+    const fadeSections = document.querySelectorAll(".fade-section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    fadeSections.forEach((section) => observer.observe(section));
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
